@@ -93,221 +93,108 @@ const Home = (props) => {
               <h2 className="home-section-title section-title">Our Services</h2>
               <div className="header-divider"></div>
             </div>
-            <div className="services-grid">
-              <div className="service-card">
-                <div className="service-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <rect width="18" height="18" x="3" y="3" rx="2"></rect>
-                    <path d="M12 9v6m4 0v6m0-18v6M3 15h18M3 9h18M8 15v6M8 3v6"></path>
-                  </svg>
+            <div id="servicesCarousel" className="services-carousel">
+              <div className="services-carousel__track">
+                <div className="services-slide is-active" data-slide="0" style={{ backgroundImage: "url(/photos/photo-12.jpg)" }}>
+                  <div className="services-slide__overlay"></div>
+                  <div className="services-slide__content">
+                    <span className="services-slide__eyebrow">01 / Premium Hardscape</span>
+                    <h3 className="services-slide__title">Paver Installation</h3>
+                    <p className="services-slide__desc">Custom driveways, patios, walkways, and pool decks with premium pavers built to withstand Arizona&apos;s heat and last a lifetime.</p>
+                    <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
+                  </div>
                 </div>
-                <h3 className="service-name">Paver Installation</h3>
-                <p className="section-content">
-                  Custom driveways, patios, walkways, and pool decks with
-                  premium pavers built to withstand Arizona&apos;s heat and last
-                  a lifetime.
-                </p>
-                <div className="card-gradient-border"></div>
-              </div>
-              <div className="service-card">
-                <div className="service-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M6 9v1a3 3 0 0 0 3 3h1m8-5v5a3 3 0 0 1-3 3h-1m-4 5V5a2 2 0 1 1 4 0v16m-7 0h10"></path>
-                  </svg>
+                <div className="services-slide" data-slide="1" style={{ backgroundImage: "url(/photos/photo-03.jpg)" }}>
+                  <div className="services-slide__overlay"></div>
+                  <div className="services-slide__content">
+                    <span className="services-slide__eyebrow">02 / Water-Wise Design</span>
+                    <h3 className="services-slide__title">Xeriscaping</h3>
+                    <p className="services-slide__desc">Water-efficient desert landscaping that&apos;s beautiful and sustainable with native plants, rock features, and drought-tolerant design.</p>
+                    <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
+                  </div>
                 </div>
-                <h3 className="service-name">Xeriscaping</h3>
-                <p className="section-content">
-                  Water-efficient desert landscaping that&apos;s beautiful and
-                  sustainable with native plants, rock features, and
-                  drought-tolerant design.
-                </p>
-                <div className="card-gradient-border"></div>
-              </div>
-              <div className="service-card">
-                <div className="service-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M22 20a2.4 2.4 0 0 0-2 1 2.4 2.4 0 0 1-2-1 2.4 2.4 0 0 1-2 1 2.4 2.4 0 0 0-2-1 2.4 2.4 0 0 0-2 1 2.4 2.4 0 0 1-2-1 2.4 2.4 0 0 1-2 1 2.4 2.4 0 0 0-2-1 2.4 2.4 0 0 0-2 1M2 16a2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1"></path>
-                  </svg>
+                <div className="services-slide" data-slide="2" style={{ backgroundImage: "url(/photos/photo-05.jpg)" }}>
+                  <div className="services-slide__overlay"></div>
+                  <div className="services-slide__content">
+                    <span className="services-slide__eyebrow">03 / Year-Round Green</span>
+                    <h3 className="services-slide__title">Artificial Turf</h3>
+                    <p className="services-slide__desc">Lush green lawns year-round with zero water waste, perfect for families, pets, and Arizona&apos;s extreme climate.</p>
+                    <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
+                  </div>
                 </div>
-                <h3 className="service-name">Artificial Turf</h3>
-                <p className="section-content">
-                  Lush green lawns year-round with zero water waste, perfect for
-                  families, pets, and Arizona&apos;s extreme climate.
-                </p>
-                <div className="card-gradient-border"></div>
-              </div>
-              <div className="service-card">
-                <div className="service-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M2 20a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2-1a2.4 2.4 0 0 1 2-1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2-1a2.4 2.4 0 0 1 2-1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2-1M2 16a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2-1a2.4 2.4 0 0 1 2-1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2-1a2.4 2.4 0 0 1 2-1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2-1m-7-4V4.5a1.5 1.5 0 0 1 3 0M9 12V4.5a1.5 1.5 0 0 0-3 0m9 .5H9m0 5h6"></path>
-                  </svg>
+                <div className="services-slide" data-slide="3" style={{ backgroundImage: "url(/photos/photo-57.jpg)" }}>
+                  <div className="services-slide__overlay"></div>
+                  <div className="services-slide__content">
+                    <span className="services-slide__eyebrow">04 / Resort-Style Decks</span>
+                    <h3 className="services-slide__title">Pool Deck Remodeling</h3>
+                    <p className="services-slide__desc">Cool-deck finishes, travertine pavers, and slip-resistant surfaces designed for the desert sun.</p>
+                    <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
+                  </div>
                 </div>
-                <h3 className="service-name">Pool Deck Remodeling</h3>
-                <p className="section-content">
-                  Cool-deck finishes, travertine pavers, and slip-resistant
-                  surfaces designed for the desert sun.
-                </p>
-                <div className="card-gradient-border"></div>
-              </div>
-              <div className="service-card">
-                <div className="service-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm0 2h16m0 4H4m0 4h16M9 4v4m5 0v4m-6 0v4m8-4v4m-5 0v4"></path>
-                  </svg>
+                <div className="services-slide" data-slide="4" style={{ backgroundImage: "url(/photos/photo-32.jpg)" }}>
+                  <div className="services-slide__overlay"></div>
+                  <div className="services-slide__content">
+                    <span className="services-slide__eyebrow">05 / Structural Beauty</span>
+                    <h3 className="services-slide__title">Retaining Walls</h3>
+                    <p className="services-slide__desc">Functional and decorative block walls, seat walls, and retaining structures that add dimension and value to your property.</p>
+                    <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
+                  </div>
                 </div>
-                <h3 className="service-name">Retaining Walls</h3>
-                <p className="section-content">
-                  Functional and decorative block walls, seat walls, and
-                  retaining structures that add dimension and value to your
-                  property.
-                </p>
-                <div className="card-gradient-border"></div>
-              </div>
-              <div className="service-card">
-                <div className="service-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7"></path>
-                  </svg>
+                <div className="services-slide" data-slide="5" style={{ backgroundImage: "url(/photos/stock-irrigation.jpg)" }}>
+                  <div className="services-slide__overlay"></div>
+                  <div className="services-slide__content">
+                    <span className="services-slide__eyebrow">06 / Smart Watering</span>
+                    <h3 className="services-slide__title">Irrigation Systems</h3>
+                    <p className="services-slide__desc">Smart drip irrigation installation and repair to keep your landscape thriving while conserving water in the Sonoran Desert.</p>
+                    <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
+                  </div>
                 </div>
-                <h3 className="service-name">Irrigation Systems</h3>
-                <p className="section-content">
-                  Smart drip irrigation installation and repair to keep your
-                  landscape thriving while conserving water in the Sonoran
-                  Desert.
-                </p>
-                <div className="card-gradient-border"></div>
-              </div>
-              <div className="service-card">
-                <div className="service-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M16 3v2.107M17 9c1 3 2.5 3.5 3.5 4.5A5 5 0 0 1 22 17a5 5 0 0 1-10 0c0-.3 0-.6.1-.9a2 2 0 1 0 3.3-2C13 11.5 16 9 17 9"></path>
-                    <path d="M21 8.274V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.938M3 15h5.253M3 9h8.228M8 15v6M8 3v6"></path>
-                  </svg>
+                <div className="services-slide" data-slide="6" style={{ backgroundImage: "url(/photos/photo-52.jpg)" }}>
+                  <div className="services-slide__overlay"></div>
+                  <div className="services-slide__content">
+                    <span className="services-slide__eyebrow">07 / Outdoor Living</span>
+                    <h3 className="services-slide__title">Fire Pits &amp; Kitchens</h3>
+                    <p className="services-slide__desc">Custom-built fire features and outdoor cooking areas for unforgettable evenings under the Arizona sky.</p>
+                    <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
+                  </div>
                 </div>
-                <h3 className="service-name">Fire Pits &amp; Kitchens</h3>
-                <p className="section-content">
-                  Custom-built fire features and outdoor cooking areas for
-                  unforgettable evenings under the Arizona sky.
-                </p>
-                <div className="card-gradient-border"></div>
-              </div>
-              <div className="service-card">
-                <div className="service-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M8 19a4 4 0 0 1-2.24-7.32A3.5 3.5 0 0 1 9 6.03V6a3 3 0 1 1 6 0v.04a3.5 3.5 0 0 1 3.24 5.65A4 4 0 0 1 16 19Zm4 0v3"></path>
-                  </svg>
+                <div className="services-slide" data-slide="7" style={{ backgroundImage: "url(/photos/stock-trees-plants.jpg)" }}>
+                  <div className="services-slide__overlay"></div>
+                  <div className="services-slide__content">
+                    <span className="services-slide__eyebrow">08 / Living Color</span>
+                    <h3 className="services-slide__title">Tree &amp; Plant Installation</h3>
+                    <p className="services-slide__desc">Expert selection and planting of desert-adapted trees, shrubs, and flowering plants that thrive in the Valley heat.</p>
+                    <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
+                  </div>
                 </div>
-                <h3 className="service-name">Tree &amp; Plant Installation</h3>
-                <p className="section-content">
-                  Expert selection and planting of desert-adapted trees, shrubs,
-                  and flowering plants that thrive in the Valley heat.
-                </p>
-                <div className="card-gradient-border"></div>
-              </div>
-              <div className="service-card">
-                <div className="service-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M15 14c.2-1 .7-1.7 1.5-2.5c1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5c.7.7 1.3 1.5 1.5 2.5m0 4h6m-5 4h4"></path>
-                  </svg>
+                <div className="services-slide" data-slide="8" style={{ backgroundImage: "url(/photos/photo-14.jpg)" }}>
+                  <div className="services-slide__overlay"></div>
+                  <div className="services-slide__content">
+                    <span className="services-slide__eyebrow">09 / Evening Ambiance</span>
+                    <h3 className="services-slide__title">Landscape Lighting</h3>
+                    <p className="services-slide__desc">Low-voltage LED lighting design that highlights your landscape, improves safety, and creates stunning curb appeal at night.</p>
+                    <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
+                  </div>
                 </div>
-                <h3 className="service-name">Landscape Lighting</h3>
-                <p className="section-content">
-                  Low-voltage LED lighting design that highlights your
-                  landscape, improves safety, and creates stunning curb appeal
-                  at night.
-                </p>
-                <div className="card-gradient-border"></div>
               </div>
+              <button id="servicesPrev" aria-label="Previous service" className="services-carousel__nav services-carousel__nav--prev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"></path></svg>
+              </button>
+              <button id="servicesNext" aria-label="Next service" className="services-carousel__nav services-carousel__nav--next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+              </button>
+              <div id="servicesDots" className="services-carousel__dots">
+                <button data-dot="0" className="services-carousel__dot is-active" aria-label="Go to service 1"></button>
+                <button data-dot="1" className="services-carousel__dot" aria-label="Go to service 2"></button>
+                <button data-dot="2" className="services-carousel__dot" aria-label="Go to service 3"></button>
+                <button data-dot="3" className="services-carousel__dot" aria-label="Go to service 4"></button>
+                <button data-dot="4" className="services-carousel__dot" aria-label="Go to service 5"></button>
+                <button data-dot="5" className="services-carousel__dot" aria-label="Go to service 6"></button>
+                <button data-dot="6" className="services-carousel__dot" aria-label="Go to service 7"></button>
+                <button data-dot="7" className="services-carousel__dot" aria-label="Go to service 8"></button>
+                <button data-dot="8" className="services-carousel__dot" aria-label="Go to service 9"></button>
+              </div>
+              <div className="services-carousel__progress"><div id="servicesProgress" className="services-carousel__progress-bar"></div></div>
             </div>
           </div>
         </section>
@@ -1048,8 +935,95 @@ to {transform: scaleX(1);}}@keyframes bounce {0%,20%,50%,80%,100% {transform: tr
     })
   }
 
-  // Scroll Reveal Animation (Subtle)
-  const revealElements = document.querySelectorAll(".service-card, .review-card, .trust-point, .why-image-wrapper")
+  // Services Carousel
+  const sCarousel = document.getElementById("servicesCarousel")
+  if (sCarousel) {
+    const slides = sCarousel.querySelectorAll(".services-slide")
+    const dots = sCarousel.querySelectorAll(".services-carousel__dot")
+    const prevBtn = document.getElementById("servicesPrev")
+    const nextBtn = document.getElementById("servicesNext")
+    const progressBar = document.getElementById("servicesProgress")
+    let current = 0
+    let timer = null
+    let progressTimer = null
+    const INTERVAL = 5000
+
+    const goTo = (i) => {
+      current = (i + slides.length) % slides.length
+      slides.forEach((s, idx) => s.classList.toggle("is-active", idx === current))
+      dots.forEach((d, idx) => d.classList.toggle("is-active", idx === current))
+      restartProgress()
+    }
+
+    const next = () => goTo(current + 1)
+    const prev = () => goTo(current - 1)
+
+    const startAuto = () => {
+      stopAuto()
+      timer = setInterval(next, INTERVAL)
+      restartProgress()
+    }
+    const stopAuto = () => {
+      if (timer) { clearInterval(timer); timer = null }
+      if (progressTimer) { cancelAnimationFrame(progressTimer); progressTimer = null }
+    }
+    const restartProgress = () => {
+      if (!progressBar) return
+      progressBar.style.transition = "none"
+      progressBar.style.width = "0%"
+      // force reflow
+      void progressBar.offsetWidth
+      if (timer) {
+        progressBar.style.transition = "width " + INTERVAL + "ms linear"
+        progressBar.style.width = "100%"
+      }
+    }
+
+    nextBtn?.addEventListener("click", () => { next(); startAuto() })
+    prevBtn?.addEventListener("click", () => { prev(); startAuto() })
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const i = parseInt(dot.getAttribute("data-dot"), 10)
+        goTo(i)
+        startAuto()
+      })
+    })
+
+    // Pause on hover
+    sCarousel.addEventListener("mouseenter", stopAuto)
+    sCarousel.addEventListener("mouseleave", startAuto)
+
+    // Keyboard
+    sCarousel.setAttribute("tabindex", "0")
+    sCarousel.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") { next(); startAuto() }
+      if (e.key === "ArrowLeft") { prev(); startAuto() }
+    })
+
+    // Touch swipe
+    let touchStartX = 0
+    let touchEndX = 0
+    sCarousel.addEventListener("touchstart", (e) => { touchStartX = e.changedTouches[0].screenX }, { passive: true })
+    sCarousel.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX
+      const diff = touchStartX - touchEndX
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) next(); else prev()
+        startAuto()
+      }
+    }, { passive: true })
+
+    // Pause when offscreen
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) startAuto(); else stopAuto()
+      })
+    }, { threshold: 0.25 })
+    io.observe(sCarousel)
+  }
+
+    // Scroll Reveal Animation (Subtle)
+  const revealElements = document.querySelectorAll(".review-card, .trust-point, .why-image-wrapper")
 
   const revealOnScroll = () => {
     const triggerBottom = window.innerHeight * 0.85
