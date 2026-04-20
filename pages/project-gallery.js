@@ -78,7 +78,7 @@ const ProjectGallery = (props) => {
               <article data-category="pavers" className="project-card">
                 <div className="project-card__media">
                   <img
-                    src="https://images.pexels.com/photos/10855255/pexels-photo-10855255.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/photos/photo-08.jpg"
                     alt="Luxury Paver Patio"
                   />
                   <div className="project-card__overlay">
@@ -95,7 +95,7 @@ const ProjectGallery = (props) => {
               <article data-category="xeriscape" className="project-card">
                 <div className="project-card__media">
                   <img
-                    src="https://images.pexels.com/photos/28862124/pexels-photo-28862124.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/photos/photo-09.jpg"
                     alt="Modern Xeriscape"
                   />
                   <div className="project-card__overlay">
@@ -112,7 +112,7 @@ const ProjectGallery = (props) => {
               <article data-category="pool" className="project-card">
                 <div className="project-card__media">
                   <img
-                    src="https://images.pexels.com/photos/8839767/pexels-photo-8839767.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/photos/photo-10.jpg"
                     alt="Pool Deck Transformation"
                   />
                   <div className="project-card__overlay">
@@ -129,7 +129,7 @@ const ProjectGallery = (props) => {
               <article data-category="lighting" className="project-card">
                 <div className="project-card__media">
                   <img
-                    src="https://images.pexels.com/photos/35755096/pexels-photo-35755096.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/photos/photo-11.jpg"
                     alt="Landscape Lighting"
                   />
                   <div className="project-card__overlay">
@@ -146,7 +146,7 @@ const ProjectGallery = (props) => {
               <article data-category="turf" className="project-card">
                 <div className="project-card__media">
                   <img
-                    src="https://images.pexels.com/photos/9173340/pexels-photo-9173340.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/photos/photo-12.jpg"
                     alt="Artificial Turf Lawn"
                   />
                   <div className="project-card__overlay">
@@ -157,6 +157,523 @@ const ProjectGallery = (props) => {
                     >
                       View Details
                     </button>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pavers" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-17.jpg"
+                    alt="Paver Project"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Paver Project</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="xeriscape" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-18.jpg"
+                    alt="Xeriscape Design"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Xeriscape Design</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pool" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-19.jpg"
+                    alt="Pool Deck Build"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Pool Deck Build</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="lighting" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-20.jpg"
+                    alt="Landscape Lighting"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Landscape Lighting</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="turf" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-21.jpg"
+                    alt="Turf Installation"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Turf Installation</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pavers" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-22.jpg"
+                    alt="Paver Project"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Paver Project</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="xeriscape" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-23.jpg"
+                    alt="Xeriscape Design"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Xeriscape Design</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pool" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-24.jpg"
+                    alt="Pool Deck Build"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Pool Deck Build</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="lighting" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-25.jpg"
+                    alt="Landscape Lighting"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Landscape Lighting</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="turf" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-26.jpg"
+                    alt="Turf Installation"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Turf Installation</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pavers" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-27.jpg"
+                    alt="Paver Project"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Paver Project</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="xeriscape" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-28.jpg"
+                    alt="Xeriscape Design"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Xeriscape Design</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pool" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-29.jpg"
+                    alt="Pool Deck Build"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Pool Deck Build</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="lighting" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-30.jpg"
+                    alt="Landscape Lighting"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Landscape Lighting</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="turf" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-31.jpg"
+                    alt="Turf Installation"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Turf Installation</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pavers" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-32.jpg"
+                    alt="Paver Project"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Paver Project</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="xeriscape" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-33.jpg"
+                    alt="Xeriscape Design"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Xeriscape Design</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pool" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-34.jpg"
+                    alt="Pool Deck Build"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Pool Deck Build</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="lighting" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-35.jpg"
+                    alt="Landscape Lighting"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Landscape Lighting</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="turf" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-36.jpg"
+                    alt="Turf Installation"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Turf Installation</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pavers" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-37.jpg"
+                    alt="Paver Project"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Paver Project</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="xeriscape" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-38.jpg"
+                    alt="Xeriscape Design"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Xeriscape Design</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pool" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-39.jpg"
+                    alt="Pool Deck Build"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Pool Deck Build</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="lighting" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-40.jpg"
+                    alt="Landscape Lighting"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Landscape Lighting</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="turf" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-41.jpg"
+                    alt="Turf Installation"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Turf Installation</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pavers" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-42.jpg"
+                    alt="Paver Project"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Paver Project</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="xeriscape" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-43.jpg"
+                    alt="Xeriscape Design"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Xeriscape Design</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pool" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-44.jpg"
+                    alt="Pool Deck Build"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Pool Deck Build</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="lighting" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-45.jpg"
+                    alt="Landscape Lighting"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Landscape Lighting</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="turf" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-46.jpg"
+                    alt="Turf Installation"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Turf Installation</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pavers" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-47.jpg"
+                    alt="Paver Project"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Paver Project</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="xeriscape" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-48.jpg"
+                    alt="Xeriscape Design"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Xeriscape Design</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pool" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-50.jpg"
+                    alt="Pool Deck Build"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Pool Deck Build</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="lighting" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-51.jpg"
+                    alt="Landscape Lighting"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Landscape Lighting</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="turf" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-52.jpg"
+                    alt="Turf Installation"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Turf Installation</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pavers" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-53.jpg"
+                    alt="Paver Project"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Paver Project</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="xeriscape" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-54.jpg"
+                    alt="Xeriscape Design"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Xeriscape Design</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pool" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-55.jpg"
+                    alt="Pool Deck Build"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Pool Deck Build</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="lighting" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-56.jpg"
+                    alt="Landscape Lighting"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Landscape Lighting</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="turf" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-57.jpg"
+                    alt="Turf Installation"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Turf Installation</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pavers" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-58.jpg"
+                    alt="Paver Project"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Paver Project</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="xeriscape" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-60.jpg"
+                    alt="Xeriscape Design"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Xeriscape Design</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pool" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-61.jpg"
+                    alt="Pool Deck Build"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Pool Deck Build</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="lighting" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-62.jpg"
+                    alt="Landscape Lighting"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Landscape Lighting</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="turf" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-63.jpg"
+                    alt="Turf Installation"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Turf Installation</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="pavers" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-64.jpg"
+                    alt="Paver Project"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Paver Project</h3>
+                  </div>
+                </div>
+              </article>
+              <article data-category="xeriscape" className="project-card">
+                <div className="project-card__media">
+                  <img
+                    src="/photos/photo-66.jpg"
+                    alt="Xeriscape Design"
+                  />
+                  <div className="project-card__overlay">
+                    <h3 className="section-subtitle">Xeriscape Design</h3>
                   </div>
                 </div>
               </article>
@@ -200,7 +717,7 @@ const ProjectGallery = (props) => {
             <div className="showcase-item active">
               <div className="showcase-item__media">
                 <img
-                  src="https://images.pexels.com/photos/28586234/pexels-photo-28586234.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                  src="/photos/photo-13.jpg"
                   alt="Signature Estate Project"
                 />
               </div>
@@ -273,13 +790,13 @@ const ProjectGallery = (props) => {
             <div id="mainComparison" className="comparison-slider">
               <div className="comparison-slider__after">
                 <img
-                  src="https://images.pexels.com/photos/28586227/pexels-photo-28586227.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                  src="/photos/photo-14.jpg"
                   alt="After Transformation"
                 />
               </div>
               <div className="comparison-slider__before">
                 <img
-                  src="https://images.pexels.com/photos/11757136/pexels-photo-11757136.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                  src="/photos/photo-15.jpg"
                   alt="Before Transformation"
                 />
               </div>
@@ -327,7 +844,7 @@ const ProjectGallery = (props) => {
               <div className="project-modal__gallery">
                 <img
                   id="modalMainImg"
-                  src="https://images.pexels.com/photos/10855255/pexels-photo-10855255.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                  src="/photos/photo-16.jpg"
                   alt="Project Detail"
                 />
               </div>
@@ -578,14 +1095,14 @@ opacity: 0;}}
       desc: "This expansive patio project utilized premium Belgard pavers to create a seamless transition between indoor and outdoor living. Heat-resistant materials ensure comfort during peak Arizona summers.",
       services: "Paver Installation, Landscape Lighting",
       materials: "Travertine, Low-Voltage LED",
-      img: "https://images.pexels.com/photos/10855255/pexels-photo-10855255.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      img: "/photos/photo-08.jpg",
     },
     "desert-modern": {
       title: "Desert Modern Oasis",
       desc: "A minimalist xeriscape design focusing on structural beauty and water efficiency. Features architectural cacti and a decorative river rock bed.",
       services: "Xeriscape, Irrigation",
       materials: "Native Plants, River Rock, Smart Drip",
-      img: "https://images.pexels.com/photos/28862124/pexels-photo-28862124.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      img: "/photos/photo-09.jpg",
     },
   }
 

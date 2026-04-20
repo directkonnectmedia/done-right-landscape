@@ -323,7 +323,7 @@ const Home = (props) => {
               <div id="galleryScroller" className="gallery-scroller">
                 <div className="gallery-item">
                   <img
-                    src="https://images.pexels.com/photos/36486483/pexels-photo-36486483.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/photos/photo-01.jpg"
                     alt="Luxury Paver Patios"
                   />
                   <div className="gallery-item-overlay">
@@ -334,7 +334,7 @@ const Home = (props) => {
                 </div>
                 <div className="gallery-item">
                   <img
-                    src="https://images.pexels.com/photos/31970505/pexels-photo-31970505.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/photos/photo-02.jpg"
                     alt="Desert Xeriscaping"
                   />
                   <div className="gallery-item-overlay">
@@ -345,7 +345,7 @@ const Home = (props) => {
                 </div>
                 <div className="gallery-item">
                   <img
-                    src="https://images.pexels.com/photos/14869677/pexels-photo-14869677.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/photos/photo-03.jpg"
                     alt="Modern Pool Decks"
                   />
                   <div className="gallery-item-overlay">
@@ -354,7 +354,7 @@ const Home = (props) => {
                 </div>
                 <div className="gallery-item">
                   <img
-                    src="https://images.pexels.com/photos/9511502/pexels-photo-9511502.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/photos/photo-04.jpg"
                     alt="Custom Fire Pits"
                   />
                   <div className="gallery-item-overlay">
@@ -363,7 +363,7 @@ const Home = (props) => {
                 </div>
                 <div className="gallery-item">
                   <img
-                    src="https://images.pexels.com/photos/20535430/pexels-photo-20535430.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/photos/photo-05.jpg"
                     alt="Backyard Transformations"
                   />
                   <div className="gallery-item-overlay">
@@ -374,7 +374,7 @@ const Home = (props) => {
                 </div>
                 <div className="gallery-item">
                   <img
-                    src="https://images.pexels.com/photos/20547052/pexels-photo-20547052.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                    src="/photos/photo-06.jpg"
                     alt="Outdoor Living Spaces"
                   />
                   <div className="gallery-item-overlay">
@@ -762,7 +762,7 @@ const Home = (props) => {
             </div>
             <div className="why-image-wrapper">
               <img
-                src="https://images.pexels.com/photos/13540014/pexels-photo-13540014.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
+                src="/photos/photo-07.jpg"
                 alt="Arizona Landscaping Excellence"
                 className="why-image"
               />
