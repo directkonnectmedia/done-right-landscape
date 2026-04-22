@@ -13,22 +13,19 @@ const Navigation = (props) => {
             <Link href="/">
               <a>
                 <div
-                  aria-label="Done Right Landscaping Home"
+                  aria-label="Done Right Landscape LLC Home"
                   className="navigation-logo-wrapper"
                 >
+                  <img
+                    src="/done-right-logo.png"
+                    alt="Done Right Landscape LLC"
+                    className="navigation-logo-img"
+                  />
                   <div className="navigation-logo-content">
                     <span className="navigation-brand-name">
-                      <span>
-                        {' '}
-                        Done Right
-                        <span
-                          dangerouslySetInnerHTML={{
-                            __html: ' ',
-                          }}
-                        />
-                      </span>
+                      <span>Done Right </span>
                       <span className="navigation-thq-navigation-brand-accent-elm1">
-                        Landscaping
+                        Landscape LLC
                       </span>
                     </span>
                   </div>
@@ -128,18 +125,15 @@ const Navigation = (props) => {
               <Link href="/">
                 <a>
                   <div className="navigation-logo-wrapper">
+                    <img
+                      src="/done-right-logo.png"
+                      alt="Done Right Landscape LLC"
+                      className="navigation-logo-img"
+                    />
                     <span className="navigation-brand-name">
-                      <span>
-                        {' '}
-                        Done Right
-                        <span
-                          dangerouslySetInnerHTML={{
-                            __html: ' ',
-                          }}
-                        />
-                      </span>
+                      <span>Done Right </span>
                       <span className="navigation-thq-navigation-brand-accent-elm2">
-                        Landscaping
+                        Landscape LLC
                       </span>
                     </span>
                   </div>
@@ -273,6 +267,22 @@ const Navigation = (props) => {
           }
           .navigation-thq-navigation-brand-accent-elm2 {
             color: var(--color-accent);
+          }
+          .navigation-logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+          .navigation-logo-img {
+            height: 52px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+          }
+          @media (max-width: 640px) {
+            .navigation-logo-img {
+              height: 40px;
+            }
           }
           .navigation-container2 {
             display: none;

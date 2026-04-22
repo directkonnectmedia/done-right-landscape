@@ -116,7 +116,7 @@ const Home = (props) => {
             </div>
             <div id="servicesCarousel" className="services-carousel">
               <div className="services-carousel__track">
-                <div className="services-slide is-active" data-slide="0" style={{ backgroundImage: "url(/photos/photo-12.jpg)" }}>
+                <div className="services-slide is-active" data-slide="0" style={{ backgroundImage: "url(/photos/service-pavers.jpg)" }}>
                   <div className="services-slide__overlay"></div>
                   <div className="services-slide__content">
                     <span className="services-slide__eyebrow">01 / Premium Hardscape</span>
@@ -161,7 +161,7 @@ const Home = (props) => {
                     <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
                   </div>
                 </div>
-                <div className="services-slide" data-slide="5" style={{ backgroundImage: "url(/photos/stock-irrigation.jpg)" }}>
+                <div className="services-slide" data-slide="5" style={{ backgroundImage: "url(/photos/service-irrigation.png)" }}>
                   <div className="services-slide__overlay"></div>
                   <div className="services-slide__content">
                     <span className="services-slide__eyebrow">06 / Smart Watering</span>
@@ -179,7 +179,7 @@ const Home = (props) => {
                     <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
                   </div>
                 </div>
-                <div className="services-slide" data-slide="7" style={{ backgroundImage: "url(/photos/stock-trees-plants.jpg)" }}>
+                <div className="services-slide" data-slide="7" style={{ backgroundImage: "url(/photos/service-plants.png)" }}>
                   <div className="services-slide__overlay"></div>
                   <div className="services-slide__content">
                     <span className="services-slide__eyebrow">08 / Living Color</span>
@@ -198,9 +198,6 @@ const Home = (props) => {
                   </div>
                 </div>
               </div>
-              <button id="servicesPrev" aria-label="Previous service" className="services-carousel__nav services-carousel__nav--prev">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"></path></svg>
-              </button>
               <button id="servicesNext" aria-label="Next service" className="services-carousel__nav services-carousel__nav--next">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
               </button>

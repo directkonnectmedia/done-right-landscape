@@ -1,20 +1,9 @@
-import React, { useMemo, useState } from 'react'
+import React from 'react'
 import Head from 'next/head'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 import Navigation from '../components/navigation'
 import Footer from '../components/footer'
-
-const CATEGORIES = [
-  { key: 'all', label: 'All' },
-  { key: 'pavers', label: 'Pavers' },
-  { key: 'xeriscape', label: 'Xeriscape' },
-  { key: 'pool', label: 'Pool Decks' },
-  { key: 'turf', label: 'Artificial Turf' },
-  { key: 'lighting', label: 'Lighting' },
-  { key: 'fire', label: 'Fire & Kitchen' },
-  { key: 'walls', label: 'Retaining Walls' },
-]
 
 const CATEGORY_LABEL = {
   pavers: 'Paver Installation',
@@ -126,12 +115,7 @@ const PROJECTS = PHOTO_NUMBERS.map((n, i) => {
 })
 
 export default function ProjectGallery() {
-  const [activeFilter, setActiveFilter] = useState('all')
-
-  const visible = useMemo(() => {
-    if (activeFilter === 'all') return PROJECTS
-    return PROJECTS.filter((p) => p.category === activeFilter)
-  }, [activeFilter])
+  const visible = PROJECTS
 
   return (
     <>
@@ -156,51 +140,23 @@ export default function ProjectGallery() {
           </div>
         </section>
 
-        <section className="pg-filters-section">
-          <div className="pg-filters" role="tablist" aria-label="Project categories">
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat.key}
-                type="button"
-                role="tab"
-                aria-selected={activeFilter === cat.key}
-                className={`pg-chip ${activeFilter === cat.key ? 'is-active' : ''}`}
-                onClick={() => setActiveFilter(cat.key)}
+        <section className="pg-grid-section">
+          <div className="pg-grid">
+            {visible.map((p, i) => (
+              <motion.figure
+                key={p.id}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: Math.min(i, 8) * 0.03 }}
+                className="pg-tile"
               >
-                {cat.label}
-              </button>
+                <div className="pg-tile-media">
+                  <img src={p.src} alt={p.description} loading="lazy" />
+                </div>
+              </motion.figure>
             ))}
           </div>
-        </section>
-
-        <section className="pg-grid-section">
-          <motion.div
-            className="pg-grid"
-            layout
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <AnimatePresence mode="popLayout">
-              {visible.map((p) => (
-                <motion.figure
-                  key={p.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
-                  transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                  className="pg-tile"
-                >
-                  <div className="pg-tile-media">
-                    <img src={p.src} alt={p.description} loading="lazy" />
-                  </div>
-                  <figcaption className="pg-tile-caption">
-                    <span className="pg-tile-category">{p.categoryLabel}</span>
-                    <span className="pg-tile-desc">{p.description}</span>
-                  </figcaption>
-                </motion.figure>
-              ))}
-            </AnimatePresence>
-          </motion.div>
 
           {visible.length === 0 && (
             <div className="pg-empty">No projects in this category yet.</div>

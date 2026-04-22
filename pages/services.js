@@ -8,7 +8,7 @@ import Footer from '../components/footer'
 const SERVICES = [
   {
     title: 'Paver Installation',
-    image: '/photos/photo-12.jpg',
+    image: '/photos/service-pavers.jpg',
     description:
       'Custom driveways, patios, walkways, and pool decks crafted with premium pavers. Built on a proper base with polymeric sand joints to withstand Arizona\u2019s extreme heat for a lifetime.',
   },
@@ -38,7 +38,7 @@ const SERVICES = [
   },
   {
     title: 'Irrigation Systems',
-    image: '/photos/stock-irrigation.jpg',
+    image: '/photos/service-irrigation.png',
     description:
       'Smart, water-wise drip irrigation \u2014 installed, upgraded, and repaired. Wi-Fi controllers and rain sensors keep your landscape thriving while slashing your water bill.',
   },
@@ -50,9 +50,9 @@ const SERVICES = [
   },
   {
     title: 'Tree & Plant Installation',
-    image: '/photos/stock-trees-plants.jpg',
+    image: '/photos/service-plants.png',
     description:
-      'Expert selection and planting of desert-adapted trees, shrubs, and flowering plants that actually thrive in the Valley heat \u2014 with proper soil amendment and staking.',
+      'Expert selection and planting of desert-adapted trees, shrubs, and flowering plants that actually thrive in the Valley heat \u2014 including tall privacy hedges and columnar screening plants for backyard seclusion. Proper soil amendment and staking included on every install.',
   },
   {
     title: 'Landscape Lighting',

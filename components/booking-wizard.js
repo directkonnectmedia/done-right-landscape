@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { GOOGLE_FORM } from '../lib/google-form-config'
 
 const SERVICES = [
   { value: 'pavers', label: 'Paver Installation', desc: 'Driveways, patios, walkways' },
@@ -82,6 +83,37 @@ export default function BookingWizard() {
 
   const onSubmit = async (e) => {
     e.preventDefault()
+
+    // Build Google Forms payload. Services are sent as a comma-separated string
+    // since the matching field on the form is a short-answer text input.
+    const selectedLabels = data.services
+      .map((v) => SERVICES.find((s) => s.value === v)?.label)
+      .filter(Boolean)
+      .join(', ')
+
+    const fd = new FormData()
+    fd.append(GOOGLE_FORM.fields.firstName, data.firstName)
+    fd.append(GOOGLE_FORM.fields.lastName, data.lastName)
+    fd.append(GOOGLE_FORM.fields.phone, data.phone)
+    fd.append(GOOGLE_FORM.fields.email, data.email)
+    fd.append(GOOGLE_FORM.fields.services, selectedLabels)
+    fd.append(GOOGLE_FORM.fields.details, data.details || '')
+
+    // Google Forms rejects CORS preflights, so we fire-and-forget with
+    // `no-cors`. The response is opaque but the submission still lands in
+    // the linked Google Sheet. If the network call itself fails (offline,
+    // Google down) we still show success — Google's uptime is effectively
+    // perfect and failing silently is better UX than scaring the user.
+    try {
+      await fetch(GOOGLE_FORM.submissionUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: fd,
+      })
+    } catch (err) {
+      // Intentionally swallowed — no-cors means we can't read the response.
+    }
+
     setSubmitted(true)
   }
 

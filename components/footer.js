@@ -13,22 +13,16 @@ const Footer = (props) => {
             <div className="footer-top">
               <div className="footer-brand-column">
                 <div className="footer-logo-wrapper">
-                  <div className="footer-logo-placeholder">
-                    <span className="footer-logo-text">DR</span>
-                  </div>
+                  <img
+                    src="/done-right-logo.png"
+                    alt="Done Right Landscape LLC"
+                    className="footer-logo-img"
+                  />
                   <h2 className="footer-brand-name">
-                    <span>
-                      {' '}
-                      Done Right
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: ' ',
-                        }}
-                      />
-                    </span>
+                    <span>Done Right</span>
                     <br></br>
                     <span className="footer-thq-footer-brand-accent-elm">
-                      Landscaping
+                      Landscape LLC
                     </span>
                   </h2>
                 </div>
@@ -278,6 +272,13 @@ const Footer = (props) => {
             font-size: 0.75em;
             letter-spacing: 0.1em;
             text-transform: uppercase;
+          }
+          .footer-logo-img {
+            height: 56px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+            flex-shrink: 0;
           }
           .footer-container2 {
             display: none;
