@@ -8,7 +8,7 @@ import Footer from '../components/footer'
 const SERVICES = [
   {
     title: 'Paver Installation',
-    image: '/photos/service-pavers.jpg',
+    image: '/photos/service-pavers.png',
     description:
       'Custom driveways, patios, walkways, and pool decks crafted with premium pavers. Built on a proper base with polymeric sand joints to withstand Arizona\u2019s extreme heat for a lifetime.',
   },

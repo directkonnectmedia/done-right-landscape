@@ -116,7 +116,7 @@ const Home = (props) => {
             </div>
             <div id="servicesCarousel" className="services-carousel">
               <div className="services-carousel__track">
-                <div className="services-slide is-active" data-slide="0" style={{ backgroundImage: "url(/photos/service-pavers.jpg)" }}>
+                <div className="services-slide is-active" data-slide="0" style={{ backgroundImage: "url(/photos/service-pavers.png)" }}>
                   <div className="services-slide__overlay"></div>
                   <div className="services-slide__content">
                     <span className="services-slide__eyebrow">01 / Premium Hardscape</span>
