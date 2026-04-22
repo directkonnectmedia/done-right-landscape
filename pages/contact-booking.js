@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 
 import Navigation from '../components/navigation'
 import Footer from '../components/footer'
+import BookingWizard from '../components/booking-wizard'
 
 const ContactBooking = (props) => {
   return (
@@ -211,154 +212,7 @@ const ContactBooking = (props) => {
                   </p>
                 </div>
               </div>
-              <div className="booking-form-card">
-                <div className="booking-form-card__header">
-                  <h3 className="section-title">Book Your Free Estimate</h3>
-                  <p className="section-content">
-                    We&apos;ll get back to you within 24 hours.
-                  </p>
-                </div>
-                <form
-                  action="/submit-estimate"
-                  method="POST"
-                  id="estimateForm"
-                  data-form-id="a3b639a0-0bcc-40a3-adab-397aa69054a2"
-                  className="booking-form"
-                >
-                  <div className="booking-form__row">
-                    <div className="booking-form__group">
-                      <label
-                        htmlFor="firstName"
-                        className="booking-form__label"
-                      >
-                        First Name
-                      </label>
-                      <input
-                        type="text"
-                        id="firstName"
-                        name="firstName"
-                        required="true"
-                        data-form-field-id="firstName"
-                        className="booking-form__input"
-                      />
-                    </div>
-                    <div className="booking-form__group">
-                      <label htmlFor="lastName" className="booking-form__label">
-                        Last Name
-                      </label>
-                      <input
-                        type="text"
-                        id="lastName"
-                        name="lastName"
-                        required="true"
-                        data-form-field-id="lastName"
-                        className="booking-form__input"
-                      />
-                    </div>
-                  </div>
-                  <div className="booking-form__row">
-                    <div className="booking-form__group">
-                      <label htmlFor="phone" className="booking-form__label">
-                        Phone
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        required="true"
-                        data-form-field-id="phone"
-                        className="booking-form__input"
-                      />
-                    </div>
-                    <div className="booking-form__group">
-                      <label htmlFor="email" className="booking-form__label">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required="true"
-                        data-form-field-id="email"
-                        className="booking-form__input"
-                      />
-                    </div>
-                  </div>
-                  <div className="booking-form__group">
-                    <label htmlFor="service" className="booking-form__label">
-                      Service Needed
-                    </label>
-                    <select
-                      id="service"
-                      name="service"
-                      required="true"
-                      data-form-field-id="service"
-                      className="booking-form__select"
-                    >
-                      <option disabled="true" selected="true">
-                        Select a service
-                      </option>
-                      <option value="paver">Paver Installation</option>
-                      <option value="xeriscape">Xeriscaping</option>
-                      <option value="turf">Artificial Turf</option>
-                      <option value="pool-deck">Pool Deck Remodeling</option>
-                      <option value="retaining-walls">Retaining Walls</option>
-                      <option value="irrigation">Irrigation Systems</option>
-                      <option value="fire-pits">
-                        Fire Pits &amp; Outdoor Kitchens
-                      </option>
-                      <option value="planting">
-                        Tree &amp; Plant Installation
-                      </option>
-                      <option value="lighting">Landscape Lighting</option>
-                      <option value="remodel">Full Backyard Remodel</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                  <div className="booking-form__group">
-                    <label htmlFor="details" className="booking-form__label">
-                      Project Details
-                    </label>
-                    <textarea
-                      id="details"
-                      name="details"
-                      placeholder="Tell us about your project goals..."
-                      required="true"
-                      minlength="10"
-                      data-form-field-id="details"
-                      className="booking-form__textarea"
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    id="thq_button_hJbT"
-                    name="button"
-                    data-form-field-id="thq_button_hJbT"
-                    className="booking-form__submit btn btn-accent btn-xl"
-                  >
-                    <span className="btn-text">Request Free Estimate</span>
-                    <span className="contact-booking-thq-success-icon-elm success-icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewbox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M20 6 9 17l-5-5"></path>
-                      </svg>
-                    </span>
-                  </button>
-                </form>
-                <div
-                  id="formFeedback"
-                  className="contact-booking-thq-booking-formfeedback-elm booking-form__feedback"
-                ></div>
-              </div>
+              <BookingWizard />
             </div>
           </div>
         </section>
@@ -797,33 +651,7 @@ transform: translateY(0);}}@keyframes bounce {0%,20%,50%,80%,100% {transform: tr
             <Script
               html={`<script defer data-name="booking-handler">
 (function(){
-  const estimateForm = document.getElementById("estimateForm")
-  const formFeedback = document.getElementById("formFeedback")
-  const submitBtn = estimateForm.querySelector(".booking-form__submit")
-  const btnText = submitBtn.querySelector(".btn-text")
-  const successIcon = submitBtn.querySelector(".success-icon")
-
-  estimateForm.addEventListener("submit", (e) => {
-    // Prevent default to show UI success state only
-    e.preventDefault()
-
-    // Basic validation check
-    if (estimateForm.checkValidity()) {
-      // UI Feedback State
-      submitBtn.classList.add("success")
-      submitBtn.disabled = true
-      btnText.textContent = "Estimate Requested!"
-      successIcon.style.display = "inline-flex"
-
-      formFeedback.style.display = "block"
-      formFeedback.style.color = "#2ecc71"
-      formFeedback.style.marginTop = "var(--spacing-md)"
-      formFeedback.textContent = "Thank you! We have received your request and will contact you within 24 hours."
-
-      // In a real production environment, the form would submit via action="/submit-estimate"
-      // For this demo, we simulate the success state.
-    }
-  })
+  // Legacy form handler removed — BookingWizard handles submit internally.
 
   // Accordion single-open logic (Optional enhancement)
   const details = document.querySelectorAll(".faq-item")

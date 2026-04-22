@@ -1,1171 +1,438 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 import Head from 'next/head'
-
-import Script from 'dangerous-html/react'
-import { useTranslations } from 'next-intl'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import Navigation from '../components/navigation'
 import Footer from '../components/footer'
 
-const ProjectGallery = (props) => {
+const CATEGORIES = [
+  { key: 'all', label: 'All' },
+  { key: 'pavers', label: 'Pavers' },
+  { key: 'xeriscape', label: 'Xeriscape' },
+  { key: 'pool', label: 'Pool Decks' },
+  { key: 'turf', label: 'Artificial Turf' },
+  { key: 'lighting', label: 'Lighting' },
+  { key: 'fire', label: 'Fire & Kitchen' },
+  { key: 'walls', label: 'Retaining Walls' },
+]
+
+const CATEGORY_LABEL = {
+  pavers: 'Paver Installation',
+  xeriscape: 'Xeriscaping',
+  pool: 'Pool Deck',
+  turf: 'Artificial Turf',
+  lighting: 'Landscape Lighting',
+  fire: 'Fire Pit & Kitchen',
+  walls: 'Retaining Wall',
+}
+
+const DESCRIPTIONS = {
+  pavers: [
+    'Backyard paver patio with charcoal finish',
+    'Custom driveway paver installation',
+    'Front walkway with travertine pavers',
+    'Pool deck paver transformation',
+    'Side-yard paver pathway',
+    'Multi-level paver patio with fire feature',
+    'Belgard paver driveway extension',
+    'Entryway walkway with accent border',
+    'Pergola patio with sand-set pavers',
+    'Backyard paver courtyard',
+  ],
+  xeriscape: [
+    'Desert modern xeriscape with native agave',
+    'Front-yard xeriscape and rock bed',
+    'Water-wise garden with decomposed granite',
+    'Drought-tolerant front yard design',
+    'Sonoran-native plant installation',
+    'Ornamental rock and boulder landscape',
+    'Low-water courtyard garden',
+    'Modern desert front yard design',
+    'Xeriscape conversion with river rock',
+  ],
+  pool: [
+    'Travertine pool deck remodel',
+    'Cool-deck pool surround',
+    'Resort-style pool deck with pavers',
+    'Pool coping and deck replacement',
+    'Slip-resistant pool deck finish',
+    'Poolside paver lounge area',
+    'Modern pool deck with acid-stained concrete',
+    'Pool deck expansion with pavers',
+  ],
+  turf: [
+    'Pet-friendly artificial turf install',
+    'Backyard turf lawn replacement',
+    'Putting green turf feature',
+    'Side-yard turf installation',
+    'Drought-resistant turf lawn',
+    'Playground turf with shock pad',
+    'Front-yard turf replacement',
+    'Low-maintenance turf landscape',
+  ],
+  lighting: [
+    'Pathway lighting with LED bollards',
+    'Tree uplight accent lighting',
+    'Patio bistro string lighting',
+    'Facade wash lighting design',
+    'Step and hardscape LED lighting',
+    'Smart low-voltage landscape lighting',
+    'Architectural uplight installation',
+    'Warm-glow garden lighting',
+  ],
+  fire: [
+    'Custom built-in gas fire pit',
+    'Outdoor kitchen with built-in grill',
+    'Paver fire pit lounge',
+    'Natural stone fire feature',
+    'Covered outdoor cooking area',
+    'Gas fire bowl water feature combo',
+    'Concrete fire pit with seat wall',
+    'Resort-style outdoor kitchen',
+  ],
+  walls: [
+    'Block retaining wall installation',
+    'Decorative seat wall with cap',
+    'Multi-tier garden retaining wall',
+    'Stacked-stone retaining wall',
+    'Freestanding planter wall',
+    'Slope stabilization retaining wall',
+    'Dry-stack decorative wall',
+    'Modern block accent wall',
+  ],
+}
+
+const PHOTO_NUMBERS = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+  21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
+  39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 50, 51, 52, 53, 54, 55, 56, 57,
+  58, 60, 61, 62, 63, 64, 66,
+]
+
+const CATEGORY_CYCLE = ['pavers', 'xeriscape', 'pool', 'turf', 'lighting', 'fire', 'walls']
+
+const PROJECTS = PHOTO_NUMBERS.map((n, i) => {
+  const category = CATEGORY_CYCLE[i % CATEGORY_CYCLE.length]
+  const descList = DESCRIPTIONS[category]
+  const description = descList[Math.floor(i / CATEGORY_CYCLE.length) % descList.length]
+  const pad = String(n).padStart(2, '0')
+  return {
+    id: `p${pad}`,
+    src: `/photos/photo-${pad}.jpg`,
+    category,
+    categoryLabel: CATEGORY_LABEL[category],
+    description,
+  }
+})
+
+export default function ProjectGallery() {
+  const [activeFilter, setActiveFilter] = useState('all')
+
+  const visible = useMemo(() => {
+    if (activeFilter === 'all') return PROJECTS
+    return PROJECTS.filter((p) => p.category === activeFilter)
+  }, [activeFilter])
+
   return (
     <>
-      <div className="project-gallery-container1">
-        <Head>
-          <title>Project-Gallery - Substantial Golden Peafowl</title>
-          <meta
-            property="og:title"
-            content="Project-Gallery - Substantial Golden Peafowl"
-          />
-          <link
-            rel="canonical"
-            href="https://substantial-golden-peafowl-ly89h7.teleporthq.site/project-gallery"
-          />
-          <meta
-            property="og:url"
-            content="https://substantial-golden-peafowl-ly89h7.teleporthq.site/project-gallery"
-          />
-        </Head>
-        <Navigation></Navigation>
-        <section className="hero-gallery">
-          <div className="hero-gallery__bg-wrapper">
-            <img
-              src="https://images.pexels.com/photos/9173338/pexels-photo-9173338.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-              alt="Luxury Arizona Backyard"
-              className="hero-gallery__image"
-            />
-            <div className="hero-gallery__overlay"></div>
-          </div>
-          <div className="hero-gallery__content">
-            <h1 className="project-gallery-hero-title hero-title">
-              Project Gallery
-            </h1>
-            <p className="hero-subtitle">
-              Curated excellence in luxury landscaping. Explore our portfolio of
-              premium outdoor living spaces across the Arizona West Valley.
+      <Head>
+        <title>Project Gallery — Done Right Landscaping</title>
+        <meta property="og:title" content="Project Gallery — Done Right Landscaping" />
+        <meta
+          name="description"
+          content="Browse our recent landscaping projects across the Arizona West Valley."
+        />
+      </Head>
+      <div className="pg-page">
+        <Navigation />
+
+        <section className="pg-hero">
+          <div className="pg-hero-inner">
+            <span className="pg-eyebrow">PORTFOLIO</span>
+            <h1 className="pg-title">Our Work Gallery</h1>
+            <p className="pg-subtitle">
+              Browse our recent landscaping projects across the Arizona West Valley.
             </p>
-            <div className="hero-gallery__divider"></div>
-            <div className="hero-gallery__scroll-indicator">
-              <div className="hero-gallery__scroll-dot"></div>
-            </div>
           </div>
         </section>
-        <section className="filterable-gallery">
-          <div className="filterable-gallery__header">
-            <div className="filterable-gallery__filters">
-              <button data-filter="all" className="filter-chip active">
-                All Projects
-              </button>
-              <button data-filter="pavers" className="filter-chip">
-                Pavers
-              </button>
-              <button data-filter="xeriscape" className="filter-chip">
-                Xeriscape
-              </button>
-              <button data-filter="pool" className="filter-chip">
-                Pool Deck
-              </button>
-              <button data-filter="turf" className="filter-chip">
-                Artificial Turf
-              </button>
-              <button data-filter="lighting" className="filter-chip">
-                Lighting
-              </button>
-            </div>
-          </div>
-          <div className="filterable-gallery__scroller-container">
-            <div id="galleryTrack" className="filterable-gallery__track">
-              <article data-category="pavers" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-08.jpg"
-                    alt="Luxury Paver Patio"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Camelback Estate Patio</h3>
-                    <button
-                      data-project="camelback"
-                      className="open-modal btn btn-sm btn-outline"
-                    >
-                      View Details
-                    </button>
-                  </div>
-                </div>
-              </article>
-              <article data-category="xeriscape" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-09.jpg"
-                    alt="Modern Xeriscape"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Desert Modern Oasis</h3>
-                    <button
-                      data-project="desert-modern"
-                      className="open-modal btn btn-sm btn-outline"
-                    >
-                      View Details
-                    </button>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pool" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-10.jpg"
-                    alt="Pool Deck Transformation"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Verrado Pool Remodel</h3>
-                    <button
-                      data-project="verrado"
-                      className="open-modal btn btn-sm btn-outline"
-                    >
-                      View Details
-                    </button>
-                  </div>
-                </div>
-              </article>
-              <article data-category="lighting" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-11.jpg"
-                    alt="Landscape Lighting"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Evening Glow Estate</h3>
-                    <button
-                      data-project="evening-glow"
-                      className="open-modal btn btn-sm btn-outline"
-                    >
-                      View Details
-                    </button>
-                  </div>
-                </div>
-              </article>
-              <article data-category="turf" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-12.jpg"
-                    alt="Artificial Turf Lawn"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Goodyear Greenery</h3>
-                    <button
-                      data-project="goodyear"
-                      className="open-modal btn btn-sm btn-outline"
-                    >
-                      View Details
-                    </button>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pavers" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-17.jpg"
-                    alt="Paver Project"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Paver Project</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="xeriscape" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-18.jpg"
-                    alt="Xeriscape Design"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Xeriscape Design</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pool" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-19.jpg"
-                    alt="Pool Deck Build"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Pool Deck Build</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="lighting" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-20.jpg"
-                    alt="Landscape Lighting"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Landscape Lighting</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="turf" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-21.jpg"
-                    alt="Turf Installation"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Turf Installation</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pavers" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-22.jpg"
-                    alt="Paver Project"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Paver Project</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="xeriscape" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-23.jpg"
-                    alt="Xeriscape Design"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Xeriscape Design</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pool" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-24.jpg"
-                    alt="Pool Deck Build"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Pool Deck Build</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="lighting" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-25.jpg"
-                    alt="Landscape Lighting"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Landscape Lighting</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="turf" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-26.jpg"
-                    alt="Turf Installation"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Turf Installation</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pavers" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-27.jpg"
-                    alt="Paver Project"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Paver Project</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="xeriscape" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-28.jpg"
-                    alt="Xeriscape Design"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Xeriscape Design</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pool" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-29.jpg"
-                    alt="Pool Deck Build"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Pool Deck Build</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="lighting" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-30.jpg"
-                    alt="Landscape Lighting"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Landscape Lighting</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="turf" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-31.jpg"
-                    alt="Turf Installation"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Turf Installation</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pavers" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-32.jpg"
-                    alt="Paver Project"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Paver Project</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="xeriscape" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-33.jpg"
-                    alt="Xeriscape Design"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Xeriscape Design</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pool" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-34.jpg"
-                    alt="Pool Deck Build"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Pool Deck Build</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="lighting" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-35.jpg"
-                    alt="Landscape Lighting"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Landscape Lighting</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="turf" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-36.jpg"
-                    alt="Turf Installation"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Turf Installation</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pavers" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-37.jpg"
-                    alt="Paver Project"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Paver Project</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="xeriscape" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-38.jpg"
-                    alt="Xeriscape Design"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Xeriscape Design</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pool" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-39.jpg"
-                    alt="Pool Deck Build"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Pool Deck Build</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="lighting" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-40.jpg"
-                    alt="Landscape Lighting"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Landscape Lighting</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="turf" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-41.jpg"
-                    alt="Turf Installation"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Turf Installation</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pavers" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-42.jpg"
-                    alt="Paver Project"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Paver Project</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="xeriscape" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-43.jpg"
-                    alt="Xeriscape Design"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Xeriscape Design</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pool" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-44.jpg"
-                    alt="Pool Deck Build"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Pool Deck Build</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="lighting" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-45.jpg"
-                    alt="Landscape Lighting"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Landscape Lighting</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="turf" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-46.jpg"
-                    alt="Turf Installation"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Turf Installation</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pavers" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-47.jpg"
-                    alt="Paver Project"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Paver Project</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="xeriscape" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-48.jpg"
-                    alt="Xeriscape Design"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Xeriscape Design</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pool" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-50.jpg"
-                    alt="Pool Deck Build"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Pool Deck Build</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="lighting" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-51.jpg"
-                    alt="Landscape Lighting"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Landscape Lighting</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="turf" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-52.jpg"
-                    alt="Turf Installation"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Turf Installation</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pavers" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-53.jpg"
-                    alt="Paver Project"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Paver Project</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="xeriscape" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-54.jpg"
-                    alt="Xeriscape Design"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Xeriscape Design</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pool" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-55.jpg"
-                    alt="Pool Deck Build"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Pool Deck Build</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="lighting" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-56.jpg"
-                    alt="Landscape Lighting"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Landscape Lighting</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="turf" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-57.jpg"
-                    alt="Turf Installation"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Turf Installation</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pavers" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-58.jpg"
-                    alt="Paver Project"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Paver Project</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="xeriscape" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-60.jpg"
-                    alt="Xeriscape Design"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Xeriscape Design</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pool" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-61.jpg"
-                    alt="Pool Deck Build"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Pool Deck Build</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="lighting" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-62.jpg"
-                    alt="Landscape Lighting"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Landscape Lighting</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="turf" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-63.jpg"
-                    alt="Turf Installation"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Turf Installation</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="pavers" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-64.jpg"
-                    alt="Paver Project"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Paver Project</h3>
-                  </div>
-                </div>
-              </article>
-              <article data-category="xeriscape" className="project-card">
-                <div className="project-card__media">
-                  <img
-                    src="/photos/photo-66.jpg"
-                    alt="Xeriscape Design"
-                  />
-                  <div className="project-card__overlay">
-                    <h3 className="section-subtitle">Xeriscape Design</h3>
-                  </div>
-                </div>
-              </article>
-            </div>
-            <div className="filterable-gallery__nav">
-              <button id="scrollPrev" className="nav-btn prev">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="m15 18-6-6 6-6"></path>
-                </svg>
-              </button>
-              <button id="scrollNext" className="nav-btn next">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="m9 18 6-6-6-6"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </section>
-        <section className="project-showcase">
-          <div id="showcaseCarousel" className="project-showcase__carousel">
-            <div className="showcase-item active">
-              <div className="showcase-item__media">
-                <img
-                  src="/photos/photo-13.jpg"
-                  alt="Signature Estate Project"
-                />
-              </div>
-              <div className="showcase-item__content">
-                <span className="project-gallery-thq-section-subtitle-elm6 section-subtitle">
-                  Featured Signature Project
-                </span>
-                <h2 className="section-title">The Estrella Mountain Retreat</h2>
-                <p className="section-content">
-                  A complete backyard transformation featuring custom travertine
-                  pavers, a sunken fire pit lounge, and integrated smart
-                  irrigation for native desert flora.
-                </p>
-                <div className="showcase-item__specs">
-                  <div className="spec-tag">
-                    <span>Service:</span>
-                    <span>
-                      {' '}
-                      Full Remodel
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: ' ',
-                        }}
-                      />
-                    </span>
-                  </div>
-                  <div className="spec-tag">
-                    <span>Location:</span>
-                    <span>
-                      {' '}
-                      Goodyear, AZ
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: ' ',
-                        }}
-                      />
-                    </span>
-                  </div>
-                  <div className="spec-tag">
-                    <span>Timeline:</span>
-                    <span>
-                      {' '}
-                      8 Weeks
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: ' ',
-                        }}
-                      />
-                    </span>
-                  </div>
-                </div>
-                <a href="#contact">
-                  <div className="btn btn-primary">
-                    <span>Request Similar Project</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="comparison-section">
-          <div className="comparison-section__container">
-            <header className="comparison-section__header">
-              <h2 className="section-title">The Transformation</h2>
-              <p className="section-content">
-                Drag the slider to see how we turn ordinary spaces into
-                extraordinary outdoor living environments.
-              </p>
-            </header>
-            <div id="mainComparison" className="comparison-slider">
-              <div className="comparison-slider__after">
-                <img
-                  src="/photos/photo-14.jpg"
-                  alt="After Transformation"
-                />
-              </div>
-              <div className="comparison-slider__before">
-                <img
-                  src="/photos/photo-15.jpg"
-                  alt="Before Transformation"
-                />
-              </div>
-              <div className="comparison-slider__handle">
-                <div className="handle-line"></div>
-                <div className="handle-circle">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="m18 15-3-3 3-3"></path>
-                    <path d="m6 9 3 3-3 3"></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <dialog id="projectDetailModal" className="project-modal">
-          <div className="project-modal__container">
-            <button id="closeModal" className="project-modal__close">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+
+        <section className="pg-filters-section">
+          <div className="pg-filters" role="tablist" aria-label="Project categories">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat.key}
+                type="button"
+                role="tab"
+                aria-selected={activeFilter === cat.key}
+                className={`pg-chip ${activeFilter === cat.key ? 'is-active' : ''}`}
+                onClick={() => setActiveFilter(cat.key)}
               >
-                <path d="M18 6 6 18"></path>
-                <path d="m6 6 12 12"></path>
-              </svg>
-            </button>
-            <div className="project-modal__grid">
-              <div className="project-modal__gallery">
-                <img
-                  id="modalMainImg"
-                  src="/photos/photo-16.jpg"
-                  alt="Project Detail"
-                />
-              </div>
-              <div className="project-modal__info">
-                <h2 id="modalTitle" className="section-title">
-                  Camelback Estate Patio
-                </h2>
-                <p id="modalDesc" className="section-content">
-                  This expansive patio project utilized premium Belgard pavers
-                  to create a seamless transition between the indoor living
-                  space and the outdoor pool area. The design incorporates
-                  custom drainage and heat-resistant materials perfect for
-                  Tolleson summers.
-                </p>
-                <div className="project-modal__details">
-                  <div className="detail-item">
-                    <strong>Services:</strong>
-                    <span id="modalServices">
-                      Paver Installation, Landscape Lighting
-                    </span>
-                  </div>
-                  <div className="detail-item">
-                    <strong>Materials:</strong>
-                    <span id="modalMaterials">
-                      Travertine Pavers, Low-Voltage LED
-                    </span>
-                  </div>
-                </div>
-                <a href="#contact">
-                  <div className="btn btn-accent btn-lg">
-                    <span>Request Similar Estimate</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </dialog>
-        <section className="gallery-testimonials">
-          <div className="gallery-testimonials__container">
-            <div className="testimonial-mini-card">
-              <div className="testimonial-mini-card__quote">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="var(--color-secondary)"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
-                  <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
-                </svg>
-                <p className="section-content">
-                  &quot;The paver patio and fire pit area are absolutely
-                  stunning. Professional crew, on time, and the quality is
-                  unmatched.&quot;
-                </p>
-              </div>
-              <div className="testimonial-mini-card__author">
-                <strong>Maria R.</strong>
-                <span>Tolleson, AZ</span>
-              </div>
-            </div>
-            <div className="testimonial-mini-card">
-              <div className="testimonial-mini-card__quote">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="var(--color-secondary)"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
-                  <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
-                </svg>
-                <p className="section-content">
-                  &quot;Best landscaping company in the West Valley. They
-                  installed artificial turf and a full xeriscaping design.&quot;
-                </p>
-              </div>
-              <div className="testimonial-mini-card__author">
-                <strong>James T.</strong>
-                <span>Avondale, AZ</span>
-              </div>
-            </div>
-            <div className="testimonial-mini-card">
-              <div className="testimonial-mini-card__quote">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="var(--color-secondary)"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
-                  <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
-                </svg>
-                <p className="section-content">
-                  &quot;Our pool deck remodel exceeded every expectation. Highly
-                  recommend to anyone in the area.&quot;
-                </p>
-              </div>
-              <div className="testimonial-mini-card__author">
-                <strong>Sarah L.</strong>
-                <span>Goodyear, AZ</span>
-              </div>
-            </div>
+                {cat.label}
+              </button>
+            ))}
           </div>
         </section>
-        <section id="contact" className="gallery-cta">
-          <div className="gallery-cta__video-bg">
-            <video
-              autoPlay="true"
-              muted="true"
-              loop="true"
-              playsInline="true"
-              poster="https://images.pexels.com/videos/17380735/pictures/preview-0.jpeg"
-              src="https://videos.pexels.com/video-files/17380735/17380735-hd_1920_1080_25fps.mp4"
-            ></video>
-            <div className="gallery-cta__overlay"></div>
-          </div>
-          <div className="gallery-cta__content">
-            <h2 className="project-gallery-hero-title hero-title">
-              Ready to Transform Your Landscape?
-            </h2>
-            <p className="section-content">
-              Join hundreds of satisfied West Valley homeowners. Let&apos;s
-              build your dream outdoor space together.
+
+        <section className="pg-grid-section">
+          <motion.div
+            className="pg-grid"
+            layout
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <AnimatePresence mode="popLayout">
+              {visible.map((p) => (
+                <motion.figure
+                  key={p.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.96 }}
+                  transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                  className="pg-tile"
+                >
+                  <div className="pg-tile-media">
+                    <img src={p.src} alt={p.description} loading="lazy" />
+                  </div>
+                  <figcaption className="pg-tile-caption">
+                    <span className="pg-tile-category">{p.categoryLabel}</span>
+                    <span className="pg-tile-desc">{p.description}</span>
+                  </figcaption>
+                </motion.figure>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+
+          {visible.length === 0 && (
+            <div className="pg-empty">No projects in this category yet.</div>
+          )}
+        </section>
+
+        <section className="pg-cta">
+          <div className="pg-cta-inner">
+            <h2 className="pg-cta-title">Ready to transform your landscape?</h2>
+            <p className="pg-cta-text">
+              Join hundreds of West Valley homeowners who trusted Done Right for their outdoor transformation.
             </p>
-            <div className="gallery-cta__actions">
-              <a href="#">
-                <div className="btn btn-accent btn-xl">
-                  <span>Book a Free Estimate</span>
-                </div>
-              </a>
-              <a href="tel:6235521310">
-                <div className="project-gallery-thq-btn-elm9 btn btn-outline btn-xl">
-                  <span>Call (623) 552-1310</span>
-                </div>
-              </a>
+            <div className="pg-cta-actions">
+              <a href="/#booking" className="pg-cta-btn pg-cta-btn-primary">Book a Free Estimate</a>
+              <a href="tel:6235521310" className="pg-cta-btn pg-cta-btn-outline">Call (623) 552-1310</a>
             </div>
           </div>
         </section>
-        <div className="project-gallery-container2">
-          <div className="project-gallery-container3">
-            <Script
-              html={`<style>
-        @keyframes heroZoom {from {transform: scale(1);}
-to {transform: scale(1.15);}}@keyframes scrollAnim {0% {transform: translateY(0);
-opacity: 1;}
-100% {transform: translateY(15px);
-opacity: 0;}}
-        </style> `}
-            ></Script>
-          </div>
-        </div>
-        <div className="project-gallery-container4">
-          <div className="project-gallery-container5">
-            <Script
-              html={`<script defer data-name="gallery-logic">
-(function(){
-  // Filter Logic
-  const filterChips = document.querySelectorAll(".filter-chip")
-  const projectCards = document.querySelectorAll(".project-card")
 
-  filterChips.forEach((chip) => {
-    chip.addEventListener("click", () => {
-      // UI Update
-      filterChips.forEach((c) => c.classList.remove("active"))
-      chip.classList.add("active")
-
-      const filter = chip.getAttribute("data-filter")
-
-      projectCards.forEach((card) => {
-        if (filter === "all" || card.getAttribute("data-category") === filter) {
-          card.style.display = "block"
-          setTimeout(() => {
-            card.style.opacity = "1"
-            card.style.transform = "scale(1)"
-          }, 10)
-        } else {
-          card.style.opacity = "0"
-          card.style.transform = "scale(0.95)"
-          setTimeout(() => {
-            card.style.display = "none"
-          }, 300)
-        }
-      })
-    })
-  })
-
-  // Horizontal Scroller Navigation
-  const track = document.getElementById("galleryTrack")
-  const nextBtn = document.getElementById("scrollNext")
-  const prevBtn = document.getElementById("scrollPrev")
-
-  if (track && nextBtn && prevBtn) {
-    nextBtn.addEventListener("click", () => {
-      track.scrollBy({ left: 400, behavior: "smooth" })
-    })
-    prevBtn.addEventListener("click", () => {
-      track.scrollBy({ left: -400, behavior: "smooth" })
-    })
-  }
-
-  // Before & After Slider
-  const slider = document.getElementById("mainComparison")
-  if (slider) {
-    const beforeImg = slider.querySelector(".comparison-slider__before")
-    const handle = slider.querySelector(".comparison-slider__handle")
-
-    const moveSlider = (e) => {
-      const rect = slider.getBoundingClientRect()
-      let x = (e.pageX || e.touches[0].pageX) - rect.left
-
-      // Bounds check
-      if (x < 0) x = 0
-      if (x > rect.width) x = rect.width
-
-      const percent = (x / rect.width) * 100
-      beforeImg.style.width = \`\${percent}%\`
-      handle.style.left = \`\${percent}%\`
-    }
-
-    slider.addEventListener("mousemove", moveSlider)
-    slider.addEventListener("touchmove", (e) => moveSlider(e), { passive: true })
-  }
-
-  // Modal Logic
-  const modal = document.getElementById("projectDetailModal")
-  const openModalBtns = document.querySelectorAll(".open-modal")
-  const closeModalBtn = document.getElementById("closeModal")
-
-  const projectData = {
-    camelback: {
-      title: "Camelback Estate Patio",
-      desc: "This expansive patio project utilized premium Belgard pavers to create a seamless transition between indoor and outdoor living. Heat-resistant materials ensure comfort during peak Arizona summers.",
-      services: "Paver Installation, Landscape Lighting",
-      materials: "Travertine, Low-Voltage LED",
-      img: "/photos/photo-08.jpg",
-    },
-    "desert-modern": {
-      title: "Desert Modern Oasis",
-      desc: "A minimalist xeriscape design focusing on structural beauty and water efficiency. Features architectural cacti and a decorative river rock bed.",
-      services: "Xeriscape, Irrigation",
-      materials: "Native Plants, River Rock, Smart Drip",
-      img: "/photos/photo-09.jpg",
-    },
-  }
-
-  openModalBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const pId = btn.getAttribute("data-project")
-      const data = projectData[pId]
-
-      if (data) {
-        document.getElementById("modalTitle").textContent = data.title
-        document.getElementById("modalDesc").textContent = data.desc
-        document.getElementById("modalServices").textContent = data.services
-        document.getElementById("modalMaterials").textContent = data.materials
-        document.getElementById("modalMainImg").src = data.img
-        modal.showModal()
-      }
-    })
-  })
-
-  if (closeModalBtn) {
-    closeModalBtn.addEventListener("click", () => modal.close())
-  }
-
-  modal?.addEventListener("click", (e) => {
-    if (e.target === modal) modal.close()
-  })
-})()
-</script>`}
-            ></Script>
-          </div>
-        </div>
-        <Footer></Footer>
+        <Footer />
       </div>
-      <style jsx>
-        {`
-          .project-gallery-container1 {
-            width: 100%;
-            min-height: 100vh;
+
+      <style jsx>{`
+        .pg-page {
+          width: 100%;
+          min-height: 100vh;
+          background: var(--color-background, #faf9f7);
+        }
+        .pg-hero {
+          padding: 120px 24px 48px;
+          text-align: center;
+          background: var(--color-background, #faf9f7);
+        }
+        .pg-hero-inner {
+          max-width: 780px;
+          margin: 0 auto;
+        }
+        .pg-eyebrow {
+          display: inline-block;
+          font-size: 0.8rem;
+          letter-spacing: 0.18em;
+          font-weight: 600;
+          color: var(--color-primary);
+          margin-bottom: 18px;
+        }
+        .pg-title {
+          font-family: var(--font-family-heading);
+          font-size: clamp(2.2rem, 5vw, 3.6rem);
+          font-weight: 700;
+          line-height: 1.1;
+          margin: 0 0 18px;
+          color: var(--color-on-surface);
+        }
+        .pg-subtitle {
+          font-size: 1.05rem;
+          line-height: 1.6;
+          color: var(--color-on-surface-secondary);
+          max-width: 600px;
+          margin: 0 auto;
+        }
+        .pg-filters-section {
+          padding: 24px 24px 32px;
+          position: sticky;
+          top: 0;
+          z-index: 5;
+          background: var(--color-background, #faf9f7);
+        }
+        .pg-filters {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px;
+          max-width: 1100px;
+          margin: 0 auto;
+        }
+        .pg-chip {
+          padding: 10px 20px;
+          border-radius: 999px;
+          border: 1.5px solid var(--color-border);
+          background: var(--color-surface);
+          color: var(--color-on-surface);
+          font-family: var(--font-family-body);
+          font-size: 0.92rem;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+        .pg-chip:hover {
+          border-color: var(--color-primary);
+          color: var(--color-primary);
+        }
+        .pg-chip.is-active {
+          background: var(--color-primary);
+          border-color: var(--color-primary);
+          color: var(--color-on-primary, #fff);
+        }
+        .pg-grid-section {
+          padding: 0 24px 96px;
+        }
+        .pg-grid {
+          max-width: 1100px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 24px;
+        }
+        .pg-tile {
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .pg-tile-media {
+          width: 100%;
+          aspect-ratio: 4 / 3;
+          overflow: hidden;
+          border-radius: var(--border-radius-sm);
+          background: var(--color-surface-elevated, #f2f0ec);
+        }
+        .pg-tile-media img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.5s ease;
+        }
+        .pg-tile:hover .pg-tile-media img {
+          transform: scale(1.04);
+        }
+        .pg-tile-caption {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+          padding: 0 2px;
+        }
+        .pg-tile-category {
+          font-size: 0.72rem;
+          font-weight: 600;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: var(--color-primary);
+        }
+        .pg-tile-desc {
+          font-size: 0.92rem;
+          color: var(--color-on-surface);
+          line-height: 1.4;
+        }
+        .pg-empty {
+          max-width: 1100px;
+          margin: 80px auto;
+          text-align: center;
+          color: var(--color-on-surface-secondary);
+        }
+        .pg-cta {
+          padding: 72px 24px 96px;
+          background: var(--color-surface-elevated, #f2f0ec);
+        }
+        .pg-cta-inner {
+          max-width: 720px;
+          margin: 0 auto;
+          text-align: center;
+        }
+        .pg-cta-title {
+          font-family: var(--font-family-heading);
+          font-size: clamp(1.8rem, 4vw, 2.6rem);
+          line-height: 1.2;
+          margin: 0 0 14px;
+          color: var(--color-on-surface);
+        }
+        .pg-cta-text {
+          font-size: 1rem;
+          color: var(--color-on-surface-secondary);
+          margin: 0 0 30px;
+          line-height: 1.6;
+        }
+        .pg-cta-actions {
+          display: flex;
+          gap: 14px;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        .pg-cta-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 14px 26px;
+          border-radius: var(--border-radius-sm);
+          font-weight: 600;
+          font-size: 0.98rem;
+          text-decoration: none;
+          transition: all 0.25s ease;
+          border: 1.5px solid transparent;
+          font-family: var(--font-family-body);
+        }
+        .pg-cta-btn-primary {
+          background: var(--color-primary);
+          color: var(--color-on-primary, #fff);
+        }
+        .pg-cta-btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 22px color-mix(in srgb, var(--color-primary) 35%, transparent);
+        }
+        .pg-cta-btn-outline {
+          border-color: var(--color-border);
+          color: var(--color-on-surface);
+          background: var(--color-surface);
+        }
+        .pg-cta-btn-outline:hover {
+          border-color: var(--color-primary);
+          color: var(--color-primary);
+        }
+
+        @media (max-width: 1024px) {
+          .pg-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
           }
-          .project-gallery-thq-section-subtitle-elm6 {
-            color: var(--color-secondary);
+        }
+        @media (max-width: 640px) {
+          .pg-hero {
+            padding: 96px 20px 36px;
           }
-          .project-gallery-thq-btn-elm9 {
-            color: var(--color-surface);
-            background: transparent;
-            border-color: var(--color-surface);
+          .pg-grid {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 18px;
           }
-          .project-gallery-container2 {
-            display: none;
+          .pg-chip {
+            padding: 8px 14px;
+            font-size: 0.85rem;
           }
-          .project-gallery-container3 {
-            display: contents;
-          }
-          .project-gallery-container4 {
-            display: none;
-          }
-          .project-gallery-container5 {
-            display: contents;
-          }
-        `}
-      </style>
+        }
+      `}</style>
     </>
   )
 }
-
-export default ProjectGallery

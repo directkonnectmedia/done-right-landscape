@@ -96,11 +96,13 @@ const Footer = (props) => {
                       </Link>
                     </li>
                     <li className="footer-nav-item">
-                      <a href="#services">
-                        <div className="footer-nav-link">
-                          <span>Our Services</span>
-                        </div>
-                      </a>
+                      <Link href="/services">
+                        <a>
+                          <div className="footer-nav-link">
+                            <span>Our Services</span>
+                          </div>
+                        </a>
+                      </Link>
                     </li>
                     <li className="footer-nav-item">
                       <Link href="/project-gallery">
@@ -112,11 +114,13 @@ const Footer = (props) => {
                       </Link>
                     </li>
                     <li className="footer-nav-item">
-                      <a href="#reviews">
-                        <div className="footer-nav-link">
-                          <span>Client Reviews</span>
-                        </div>
-                      </a>
+                      <Link href="/reviews">
+                        <a>
+                          <div className="footer-nav-link">
+                            <span>Client Reviews</span>
+                          </div>
+                        </a>
+                      </Link>
                     </li>
                     <li className="footer-nav-item">
                       <a href="/contact-booking">

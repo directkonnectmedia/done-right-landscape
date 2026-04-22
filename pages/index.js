@@ -3,9 +3,33 @@ import Head from 'next/head'
 
 import Script from 'dangerous-html/react'
 import { useTranslations } from 'next-intl'
+import { motion } from 'framer-motion'
 
 import Navigation from '../components/navigation'
 import Footer from '../components/footer'
+import BookingWizard from '../components/booking-wizard'
+import ReviewsCarousel from '../components/reviews-carousel'
+import GallerySection from '../components/gallery-section'
+
+const fadeUp = {
+  hidden: { y: 24 },
+  show: { y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+}
+
+const fadeLeft = {
+  hidden: { x: -24 },
+  show: { x: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+}
+
+const fadeRight = {
+  hidden: { x: 24 },
+  show: { x: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+}
+
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
+}
 
 const Home = (props) => {
   return (
@@ -26,10 +50,15 @@ const Home = (props) => {
         <Navigation></Navigation>
         <section className="hero-section">
           <div className="hero-bg-wrapper">
-            <img
-              src="https://images.pexels.com/photos/9173340/pexels-photo-9173340.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-              alt="Luxurious Arizona Backyard"
-              className="hero-bg-image"
+            <video
+              className="hero-bg-image hero-bg-video"
+              src="/videos/hero.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              aria-hidden="true"
             />
             <div className="hero-logo-card">
               <img
@@ -42,16 +71,8 @@ const Home = (props) => {
           </div>
           <div className="hero-container">
             <h1 className="home-hero-title hero-title">
-              <span>
-                {' '}
-                Done Right
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: ' ',
-                  }}
-                />
-              </span>
-              <span className="accent-text">Landscaping</span>
+              <span>Done Right </span>
+              <span className="accent-text">Landscape LLC</span>
             </h1>
             <div className="hero-divider"></div>
             <p className="hero-tagline">
@@ -198,122 +219,7 @@ const Home = (props) => {
             </div>
           </div>
         </section>
-        <section id="gallery" className="gallery-section">
-          <div className="gallery-inner">
-            <div className="gallery-header">
-              <span className="gallery-label">OUR WORK</span>
-              <h2 className="home-section-title gallery-title section-title">
-                Project Gallery
-              </h2>
-            </div>
-            <div className="gallery-scroller-wrapper">
-              <div id="galleryScroller" className="gallery-scroller">
-                <div className="gallery-item">
-                  <img
-                    src="/photos/photo-01.jpg"
-                    alt="Luxury Paver Patios"
-                  />
-                  <div className="gallery-item-overlay">
-                    <span className="gallery-item-name">
-                      Luxury Paver Patios
-                    </span>
-                  </div>
-                </div>
-                <div className="gallery-item">
-                  <img
-                    src="/photos/photo-02.jpg"
-                    alt="Desert Xeriscaping"
-                  />
-                  <div className="gallery-item-overlay">
-                    <span className="gallery-item-name">
-                      Desert Xeriscaping
-                    </span>
-                  </div>
-                </div>
-                <div className="gallery-item">
-                  <img
-                    src="/photos/photo-03.jpg"
-                    alt="Modern Pool Decks"
-                  />
-                  <div className="gallery-item-overlay">
-                    <span className="gallery-item-name">Modern Pool Decks</span>
-                  </div>
-                </div>
-                <div className="gallery-item">
-                  <img
-                    src="/photos/photo-04.jpg"
-                    alt="Custom Fire Pits"
-                  />
-                  <div className="gallery-item-overlay">
-                    <span className="gallery-item-name">Custom Fire Pits</span>
-                  </div>
-                </div>
-                <div className="gallery-item">
-                  <img
-                    src="/photos/photo-05.jpg"
-                    alt="Backyard Transformations"
-                  />
-                  <div className="gallery-item-overlay">
-                    <span className="gallery-item-name">
-                      Backyard Transformations
-                    </span>
-                  </div>
-                </div>
-                <div className="gallery-item">
-                  <img
-                    src="/photos/photo-06.jpg"
-                    alt="Outdoor Living Spaces"
-                  />
-                  <div className="gallery-item-overlay">
-                    <span className="gallery-item-name">
-                      Outdoor Living Spaces
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="gallery-controls">
-              <button
-                id="galleryPrev"
-                aria-label="Previous image"
-                className="gallery-btn"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="m15 18-6-6 6-6"></path>
-                </svg>
-              </button>
-              <button
-                id="galleryNext"
-                aria-label="Next image"
-                className="gallery-btn"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="m9 18 6-6-6-6"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </section>
+        <GallerySection />
         <section id="reviews" className="reviews-section">
           <div className="reviews-container">
             <div className="reviews-header">
@@ -322,255 +228,35 @@ const Home = (props) => {
                 Reviews &amp; Testimonials
               </h2>
             </div>
-            <div className="reviews-grid">
-              <div className="review-card">
-                <div className="review-quote">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="48"
-                    height="48"
-                    viewBox="0 0 24 24"
-                    fill="var(--color-accent)"
-                    opacity="0.2"
-                  >
-                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H5c-1.25 0-2 .75-2 2v5c0 1.25.75 2 2 2h3c0 4-2 6-5 6v2zm11 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-3c-1.25 0-2 .75-2 2v5c0 1.25.75 2 2 2h3c0 4-2 6-5 6v2z"></path>
-                  </svg>
-                </div>
-                <div className="review-rating">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="var(--color-accent)"
-                  >
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="var(--color-accent)"
-                  >
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="var(--color-accent)"
-                  >
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="var(--color-accent)"
-                  >
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="var(--color-accent)"
-                  >
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                  </svg>
-                </div>
-                <p className="review-text">
-                  &quot;They completely transformed our backyard into a desert
-                  oasis. The paver patio and fire pit area are absolutely
-                  stunning. Professional crew, on time, and the quality is
-                  unmatched.&quot;
-                </p>
-                <div className="reviewer-info">
-                  <div className="reviewer-avatar">
-                    <span>MR</span>
-                  </div>
-                  <div className="reviewer-details">
-                    <span className="reviewer-name">Maria R.</span>
-                    <span className="reviewer-city">Tolleson, AZ</span>
-                  </div>
-                </div>
-              </div>
-              <div className="review-card">
-                <div className="review-quote">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="48"
-                    height="48"
-                    viewBox="0 0 24 24"
-                    fill="var(--color-accent)"
-                    opacity="0.2"
-                  >
-                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H5c-1.25 0-2 .75-2 2v5c0 1.25.75 2 2 2h3c0 4-2 6-5 6v2zm11 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-3c-1.25 0-2 .75-2 2v5c0 1.25.75 2 2 2h3c0 4-2 6-5 6v2z"></path>
-                  </svg>
-                </div>
-                <div className="review-rating">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="var(--color-accent)"
-                  >
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="var(--color-accent)"
-                  >
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="var(--color-accent)"
-                  >
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="var(--color-accent)"
-                  >
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="var(--color-accent)"
-                  >
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                  </svg>
-                </div>
-                <p className="review-text">
-                  &quot;Best landscaping company in the West Valley, hands down.
-                  They installed artificial turf and a full xeriscaping design.
-                  Our water bill dropped and the yard looks incredible
-                  year-round.&quot;
-                </p>
-                <div className="reviewer-info">
-                  <div className="reviewer-avatar">
-                    <span>JT</span>
-                  </div>
-                  <div className="reviewer-details">
-                    <span className="reviewer-name">James T.</span>
-                    <span className="reviewer-city">Avondale, AZ</span>
-                  </div>
-                </div>
-              </div>
-              <div className="review-card">
-                <div className="review-quote">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="48"
-                    height="48"
-                    viewBox="0 0 24 24"
-                    fill="var(--color-accent)"
-                    opacity="0.2"
-                  >
-                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H5c-1.25 0-2 .75-2 2v5c0 1.25.75 2 2 2h3c0 4-2 6-5 6v2zm11 0c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-3c-1.25 0-2 .75-2 2v5c0 1.25.75 2 2 2h3c0 4-2 6-5 6v2z"></path>
-                  </svg>
-                </div>
-                <div className="review-rating">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="var(--color-accent)"
-                  >
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="var(--color-accent)"
-                  >
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="var(--color-accent)"
-                  >
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="var(--color-accent)"
-                  >
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="var(--color-accent)"
-                  >
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                  </svg>
-                </div>
-                <p className="review-text">
-                  &quot;From the first consultation to the final walkthrough,
-                  Done Right lived up to their name. Our pool deck remodel
-                  exceeded every expectation. Highly recommend to anyone in the
-                  area.&quot;
-                </p>
-                <div className="reviewer-info">
-                  <div className="reviewer-avatar">
-                    <span>SL</span>
-                  </div>
-                  <div className="reviewer-details">
-                    <span className="reviewer-name">Sarah L.</span>
-                    <span className="reviewer-city">Goodyear, AZ</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ReviewsCarousel />
           </div>
         </section>
         <section id="about" className="why-section">
           <div className="why-container">
-            <div className="why-content">
-              <span className="home-section-label">
+            <motion.div
+              className="why-content"
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.25 }}
+            >
+              <motion.span variants={fadeUp} className="home-section-label">
                 THE DONE RIGHT DIFFERENCE
-              </span>
-              <h2 className="home-section-title section-title">
+              </motion.span>
+              <motion.h2 variants={fadeUp} className="home-section-title section-title">
                 Luxury Craftsmanship for the Desert Lifestyle
-              </h2>
-              <p className="why-description section-content">
+              </motion.h2>
+              <motion.p variants={fadeUp} className="why-description section-content">
                 We don&apos;t just landscape; we engineer premium outdoor
                 environments that harmonize with the unique Arizona climate. Our
                 team combines high-end architectural aesthetics with water-wise
                 Sonoran sustainability.
-              </p>
-              <div className="trust-points">
-                <div className="trust-point">
+              </motion.p>
+              <motion.div
+                className="trust-points"
+                variants={stagger}
+              >
+                <motion.div variants={fadeLeft} className="trust-point">
                   <div className="trust-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -593,8 +279,8 @@ const Home = (props) => {
                       selected for desert longevity.
                     </p>
                   </div>
-                </div>
-                <div className="trust-point">
+                </motion.div>
+                <motion.div variants={fadeLeft} className="trust-point">
                   <div className="trust-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -619,8 +305,8 @@ const Home = (props) => {
                       requirements.
                     </p>
                   </div>
-                </div>
-                <div className="trust-point">
+                </motion.div>
+                <motion.div variants={fadeLeft} className="trust-point">
                   <div className="trust-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -644,16 +330,22 @@ const Home = (props) => {
                       excellence and durability.
                     </p>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div className="why-image-wrapper">
+                </motion.div>
+              </motion.div>
+            </motion.div>
+            <motion.div
+              className="why-image-wrapper"
+              variants={fadeRight}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.25 }}
+            >
               <img
                 src="/photos/photo-07.jpg"
                 alt="Arizona Landscaping Excellence"
                 className="why-image"
               />
-            </div>
+            </motion.div>
           </div>
         </section>
         <section id="booking" className="booking-section">
@@ -732,117 +424,7 @@ const Home = (props) => {
                 </div>
               </div>
               <div className="booking-form-wrapper">
-                <div className="form-card">
-                  <div className="form-accent"></div>
-                  <h3 className="form-title">Book Your Free Estimate</h3>
-                  <p className="form-subtext section-content">
-                    We&apos;ll get back to you within 24 hours.
-                  </p>
-                  <form
-                    action="/submit"
-                    method="POST"
-                    data-form-id="b31933b9-50a2-4948-8e61-8af4224d7ee0"
-                    className="home-booking-form"
-                  >
-                    <div className="form-row">
-                      <div className="form-group">
-                        <label htmlFor="first-name">First Name</label>
-                        <input
-                          type="text"
-                          id="first-name"
-                          name="first-name"
-                          required="true"
-                          placeholder="John"
-                          data-form-field-id="first-name"
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="last-name">Last Name</label>
-                        <input
-                          type="text"
-                          id="last-name"
-                          name="last-name"
-                          required="true"
-                          placeholder="Doe"
-                          data-form-field-id="last-name"
-                        />
-                      </div>
-                    </div>
-                    <div className="form-row">
-                      <div className="form-group">
-                        <label htmlFor="phone">Phone</label>
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          required="true"
-                          placeholder="(623) 555-0100"
-                          data-form-field-id="phone"
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          required="true"
-                          placeholder="john@example.com"
-                          data-form-field-id="email"
-                        />
-                      </div>
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="service">Service Needed</label>
-                      <select
-                        id="service"
-                        name="service"
-                        required="true"
-                        data-form-field-id="service"
-                      >
-                        <option value="true" disabled="true" selected="true">
-                          Select a Service
-                        </option>
-                        <option value="pavers">Paver Installation</option>
-                        <option value="xeriscaping">Xeriscaping</option>
-                        <option value="turf">Artificial Turf</option>
-                        <option value="pool-deck">Pool Deck Remodeling</option>
-                        <option value="walls">Retaining Walls</option>
-                        <option value="irrigation">Irrigation Systems</option>
-                        <option value="fire-kitchen">
-                          Fire Pits &amp; Kitchens
-                        </option>
-                        <option value="plants">
-                          Tree &amp; Plant Installation
-                        </option>
-                        <option value="lighting">Landscape Lighting</option>
-                        <option value="full-remodel">
-                          Full Backyard Remodel
-                        </option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="details">Project Details</label>
-                      <textarea
-                        id="details"
-                        name="details"
-                        rows="4"
-                        placeholder="Tell us about your project goals..."
-                        data-form-field-id="details"
-                      ></textarea>
-                    </div>
-                    <button
-                      type="submit"
-                      id="thq_button_LlOe"
-                      name="button"
-                      data-form-field-id="thq_button_LlOe"
-                      className="btn-full btn btn-accent btn-lg"
-                    >
-                      Request Free Estimate
-                    </button>
-                  </form>
-                </div>
+                <BookingWizard />
               </div>
             </div>
           </div>
@@ -892,49 +474,6 @@ to {transform: scaleX(1);}}@keyframes bounce {0%,20%,50%,80%,100% {transform: tr
             <Script
               html={`<script defer data-name="done-right-landscaping">
 (function(){
-  // Gallery Scroller Logic
-  const scroller = document.getElementById("galleryScroller")
-  const nextBtn = document.getElementById("galleryNext")
-  const prevBtn = document.getElementById("galleryPrev")
-
-  if (scroller && nextBtn && prevBtn) {
-    nextBtn.addEventListener("click", () => {
-      scroller.scrollBy({ left: 450, behavior: "smooth" })
-    })
-
-    prevBtn.addEventListener("click", () => {
-      scroller.scrollBy({ left: -450, behavior: "smooth" })
-    })
-  }
-
-  // Form Success State Simulation
-  const bookingForm = document.querySelector(".booking-form")
-  if (bookingForm) {
-    bookingForm.addEventListener("submit", (e) => {
-      // Allow native validation to run
-      if (!bookingForm.checkValidity()) return
-
-      // Prevent actual redirect for demo purposes in this environment
-      e.preventDefault()
-
-      const submitBtn = bookingForm.querySelector('button[type="submit"]')
-      const originalText = submitBtn.textContent
-
-      // Visual feedback
-      submitBtn.textContent = "✓ Estimate Requested!"
-      submitBtn.style.backgroundColor = "#2ecc71" // Success green
-      submitBtn.disabled = true
-
-      // Reset after delay
-      setTimeout(() => {
-        bookingForm.reset()
-        submitBtn.textContent = originalText
-        submitBtn.style.backgroundColor = ""
-        submitBtn.disabled = false
-      }, 3000)
-    })
-  }
-
   // Services Carousel
   const sCarousel = document.getElementById("servicesCarousel")
   if (sCarousel) {
@@ -1023,7 +562,7 @@ to {transform: scaleX(1);}}@keyframes bounce {0%,20%,50%,80%,100% {transform: tr
   }
 
     // Scroll Reveal Animation (Subtle)
-  const revealElements = document.querySelectorAll(".review-card, .trust-point, .why-image-wrapper")
+  const revealElements = document.querySelectorAll(".review-card")
 
   const revealOnScroll = () => {
     const triggerBottom = window.innerHeight * 0.85
@@ -1059,14 +598,24 @@ to {transform: scaleX(1);}}@keyframes bounce {0%,20%,50%,80%,100% {transform: tr
             width: 100%;
             min-height: 100vh;
           }
+          .hero-bg-video {
+            animation: none !important;
+            display: block;
+            background: #000;
+          }
           .home-thq-hero-logo-image-elm {
             width: 140px;
             height: auto;
             display: block;
           }
           .home-thq-hero-overlay-elm {
-            top: -92px;
-            right: -15px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45);
           }
           .home-container2 {
             display: none;

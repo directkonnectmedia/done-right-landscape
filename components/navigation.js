@@ -38,11 +38,13 @@ const Navigation = (props) => {
             <div className="navigation-desktop-menu">
               <ul className="navigation-links-list">
                 <li>
-                  <a href="Home#services">
-                    <div className="navigation-link">
-                      <span>Services</span>
-                    </div>
-                  </a>
+                  <Link href="/services">
+                    <a>
+                      <div className="navigation-link">
+                        <span>Services</span>
+                      </div>
+                    </a>
+                  </Link>
                 </li>
                 <li>
                   <Link href="/project-gallery">
@@ -54,11 +56,13 @@ const Navigation = (props) => {
                   </Link>
                 </li>
                 <li>
-                  <a href="Home#reviews">
-                    <div className="navigation-link">
-                      <span>Reviews</span>
-                    </div>
-                  </a>
+                  <Link href="/reviews">
+                    <a>
+                      <div className="navigation-link">
+                        <span>Reviews</span>
+                      </div>
+                    </a>
+                  </Link>
                 </li>
                 <li>
                   <Link href="/contact-booking">
@@ -164,11 +168,13 @@ const Navigation = (props) => {
             <div className="navigation-overlay-content">
               <ul className="navigation-mobile-links">
                 <li>
-                  <a href="Home#services">
-                    <div className="navigation-mobile-link">
-                      <span>Services</span>
-                    </div>
-                  </a>
+                  <Link href="/services">
+                    <a>
+                      <div className="navigation-mobile-link">
+                        <span>Services</span>
+                      </div>
+                    </a>
+                  </Link>
                 </li>
                 <li>
                   <Link href="/project-gallery">
@@ -180,11 +186,13 @@ const Navigation = (props) => {
                   </Link>
                 </li>
                 <li>
-                  <a href="Home#reviews">
-                    <div className="navigation-mobile-link">
-                      <span>Reviews</span>
-                    </div>
-                  </a>
+                  <Link href="/reviews">
+                    <a>
+                      <div className="navigation-mobile-link">
+                        <span>Reviews</span>
+                      </div>
+                    </a>
+                  </Link>
                 </li>
                 <li>
                   <Link href="/contact-booking">
