@@ -13,12 +13,6 @@ const SERVICES = [
       'Custom driveways, patios, walkways, and pool decks crafted with premium pavers. Built on a proper base with polymeric sand joints to withstand Arizona\u2019s extreme heat for a lifetime.',
   },
   {
-    title: 'Residential Services',
-    image: '/photos/photo-03.jpg',
-    description:
-      'Keep your yard looking its best year-round with our residential maintenance crew. Lawn cutting, edge trimming, bush cutting, and tree trimming \u2014 scheduled on your terms and done right every visit.',
-  },
-  {
     title: 'Artificial Turf',
     image: '/photos/photo-05.jpg',
     description:

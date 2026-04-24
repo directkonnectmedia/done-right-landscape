@@ -76,7 +76,8 @@ export default function BookingWizard() {
     if (step === 0) return data.services.length > 0
     if (step === 1) return true
     if (step === 2) {
-      return data.firstName.trim() && data.lastName.trim() && data.phone.replace(/\D/g, '').length === 10 && /.+@.+\..+/.test(data.email)
+      const emailOk = data.email.trim() === '' || /.+@.+\..+/.test(data.email)
+      return data.firstName.trim() && data.phone.replace(/\D/g, '').length === 10 && emailOk
     }
     return true
   }
@@ -255,8 +256,8 @@ export default function BookingWizard() {
                         <input id="bw-first" type="text" autoComplete="given-name" placeholder="John" value={data.firstName} onChange={update('firstName')} required />
                       </div>
                       <div className="bw-field">
-                        <label htmlFor="bw-last">Last name</label>
-                        <input id="bw-last" type="text" autoComplete="family-name" placeholder="Doe" value={data.lastName} onChange={update('lastName')} required />
+                        <label htmlFor="bw-last">Last name <span className="bw-optional">(optional)</span></label>
+                        <input id="bw-last" type="text" autoComplete="family-name" placeholder="Doe" value={data.lastName} onChange={update('lastName')} />
                       </div>
                     </div>
                     <div className="bw-row">
@@ -265,8 +266,8 @@ export default function BookingWizard() {
                         <input id="bw-phone" type="tel" inputMode="numeric" autoComplete="tel" placeholder="(623) 555-0100" value={data.phone} onChange={update('phone')} required />
                       </div>
                       <div className="bw-field">
-                        <label htmlFor="bw-email">Email</label>
-                        <input id="bw-email" type="email" autoComplete="email" placeholder="john@example.com" value={data.email} onChange={update('email')} required />
+                        <label htmlFor="bw-email">Email <span className="bw-optional">(optional)</span></label>
+                        <input id="bw-email" type="email" autoComplete="email" placeholder="john@example.com" value={data.email} onChange={update('email')} />
                       </div>
                     </div>
                   </div>
@@ -288,9 +289,9 @@ export default function BookingWizard() {
                         </dd>
                       </div>
                       <div><dt>Project</dt><dd>{data.details || <span className="bw-muted">—</span>}</dd></div>
-                      <div><dt>Name</dt><dd>{data.firstName} {data.lastName}</dd></div>
+                      <div><dt>Name</dt><dd>{`${data.firstName} ${data.lastName}`.trim()}</dd></div>
                       <div><dt>Phone</dt><dd>{data.phone}</dd></div>
-                      <div><dt>Email</dt><dd>{data.email}</dd></div>
+                      <div><dt>Email</dt><dd>{data.email || <span className="bw-muted">—</span>}</dd></div>
                     </dl>
                   </div>
                 )}
@@ -599,6 +600,15 @@ export default function BookingWizard() {
         }
         .bw-muted {
           color: var(--color-on-surface-secondary);
+        }
+        .bw-optional {
+          text-transform: none;
+          letter-spacing: 0;
+          color: var(--color-on-surface-secondary);
+          font-weight: 400;
+          font-size: 0.72rem;
+          margin-left: 4px;
+          opacity: 0.75;
         }
         .bw-actions {
           margin-top: var(--spacing-xl);

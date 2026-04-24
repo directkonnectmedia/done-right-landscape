@@ -482,7 +482,7 @@ to {transform: scaleX(1);}}@keyframes bounce {0%,20%,50%,80%,100% {transform: tr
     let current = 0
     let timer = null
     let progressTimer = null
-    const INTERVAL = 5000
+    const INTERVAL = 10000
 
     const goTo = (i) => {
       current = (i + slides.length) % slides.length
