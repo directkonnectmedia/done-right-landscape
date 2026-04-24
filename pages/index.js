@@ -125,73 +125,64 @@ const Home = (props) => {
                     <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
                   </div>
                 </div>
-                <div className="services-slide" data-slide="1" style={{ backgroundImage: "url(/photos/photo-03.jpg)" }}>
+                <div className="services-slide" data-slide="1" style={{ backgroundImage: "url(/photos/photo-05.jpg)" }}>
                   <div className="services-slide__overlay"></div>
                   <div className="services-slide__content">
-                    <span className="services-slide__eyebrow">02 / Water-Wise Design</span>
-                    <h3 className="services-slide__title">Xeriscaping</h3>
-                    <p className="services-slide__desc">Water-efficient desert landscaping that&apos;s beautiful and sustainable with native plants, rock features, and drought-tolerant design.</p>
-                    <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
-                  </div>
-                </div>
-                <div className="services-slide" data-slide="2" style={{ backgroundImage: "url(/photos/photo-05.jpg)" }}>
-                  <div className="services-slide__overlay"></div>
-                  <div className="services-slide__content">
-                    <span className="services-slide__eyebrow">03 / Year-Round Green</span>
+                    <span className="services-slide__eyebrow">02 / Year-Round Green</span>
                     <h3 className="services-slide__title">Artificial Turf</h3>
                     <p className="services-slide__desc">Lush green lawns year-round with zero water waste, perfect for families, pets, and Arizona&apos;s extreme climate.</p>
                     <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
                   </div>
                 </div>
-                <div className="services-slide" data-slide="3" style={{ backgroundImage: "url(/photos/photo-57.jpg)" }}>
+                <div className="services-slide" data-slide="2" style={{ backgroundImage: "url(/photos/photo-57.jpg)" }}>
                   <div className="services-slide__overlay"></div>
                   <div className="services-slide__content">
-                    <span className="services-slide__eyebrow">04 / Resort-Style Decks</span>
+                    <span className="services-slide__eyebrow">03 / Resort-Style Decks</span>
                     <h3 className="services-slide__title">Pool Deck Remodeling</h3>
                     <p className="services-slide__desc">Cool-deck finishes, travertine pavers, and slip-resistant surfaces designed for the desert sun.</p>
                     <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
                   </div>
                 </div>
-                <div className="services-slide" data-slide="4" style={{ backgroundImage: "url(/photos/photo-32.jpg)" }}>
+                <div className="services-slide" data-slide="3" style={{ backgroundImage: "url(/photos/photo-32.jpg)" }}>
                   <div className="services-slide__overlay"></div>
                   <div className="services-slide__content">
-                    <span className="services-slide__eyebrow">05 / Structural Beauty</span>
+                    <span className="services-slide__eyebrow">04 / Structural Beauty</span>
                     <h3 className="services-slide__title">Retaining Walls</h3>
                     <p className="services-slide__desc">Functional and decorative block walls, seat walls, and retaining structures that add dimension and value to your property.</p>
                     <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
                   </div>
                 </div>
-                <div className="services-slide" data-slide="5" style={{ backgroundImage: "url(/photos/service-irrigation.png)" }}>
+                <div className="services-slide" data-slide="4" style={{ backgroundImage: "url(/photos/service-irrigation.png)" }}>
                   <div className="services-slide__overlay"></div>
                   <div className="services-slide__content">
-                    <span className="services-slide__eyebrow">06 / Smart Watering</span>
+                    <span className="services-slide__eyebrow">05 / Smart Watering</span>
                     <h3 className="services-slide__title">Irrigation Systems</h3>
                     <p className="services-slide__desc">Smart drip irrigation installation and repair to keep your landscape thriving while conserving water in the Sonoran Desert.</p>
                     <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
                   </div>
                 </div>
-                <div className="services-slide" data-slide="6" style={{ backgroundImage: "url(/photos/photo-52.jpg)" }}>
+                <div className="services-slide" data-slide="5" style={{ backgroundImage: "url(/photos/photo-52.jpg)" }}>
                   <div className="services-slide__overlay"></div>
                   <div className="services-slide__content">
-                    <span className="services-slide__eyebrow">07 / Outdoor Living</span>
+                    <span className="services-slide__eyebrow">06 / Outdoor Living</span>
                     <h3 className="services-slide__title">Fire Pits &amp; Kitchens</h3>
                     <p className="services-slide__desc">Custom-built fire features and outdoor cooking areas for unforgettable evenings under the Arizona sky.</p>
                     <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
                   </div>
                 </div>
-                <div className="services-slide" data-slide="7" style={{ backgroundImage: "url(/photos/service-plants.png)" }}>
+                <div className="services-slide" data-slide="6" style={{ backgroundImage: "url(/photos/service-plants.png)" }}>
                   <div className="services-slide__overlay"></div>
                   <div className="services-slide__content">
-                    <span className="services-slide__eyebrow">08 / Living Color</span>
+                    <span className="services-slide__eyebrow">07 / Living Color</span>
                     <h3 className="services-slide__title">Tree &amp; Plant Installation</h3>
                     <p className="services-slide__desc">Expert selection and planting of desert-adapted trees, shrubs, and flowering plants that thrive in the Valley heat.</p>
                     <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
                   </div>
                 </div>
-                <div className="services-slide" data-slide="8" style={{ backgroundImage: "url(/photos/photo-14.jpg)" }}>
+                <div className="services-slide" data-slide="7" style={{ backgroundImage: "url(/photos/photo-14.jpg)" }}>
                   <div className="services-slide__overlay"></div>
                   <div className="services-slide__content">
-                    <span className="services-slide__eyebrow">09 / Evening Ambiance</span>
+                    <span className="services-slide__eyebrow">08 / Evening Ambiance</span>
                     <h3 className="services-slide__title">Landscape Lighting</h3>
                     <p className="services-slide__desc">Low-voltage LED lighting design that highlights your landscape, improves safety, and creates stunning curb appeal at night.</p>
                     <a href="#booking" className="services-slide__cta"><span>Get a Quote</span></a>
@@ -210,7 +201,6 @@ const Home = (props) => {
                 <button data-dot="5" className="services-carousel__dot" aria-label="Go to service 6"></button>
                 <button data-dot="6" className="services-carousel__dot" aria-label="Go to service 7"></button>
                 <button data-dot="7" className="services-carousel__dot" aria-label="Go to service 8"></button>
-                <button data-dot="8" className="services-carousel__dot" aria-label="Go to service 9"></button>
               </div>
               <div className="services-carousel__progress"><div id="servicesProgress" className="services-carousel__progress-bar"></div></div>
             </div>

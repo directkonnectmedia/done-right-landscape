@@ -4,7 +4,6 @@ import { GOOGLE_FORM } from '../lib/google-form-config'
 
 const SERVICES = [
   { value: 'pavers', label: 'Paver Installation', desc: 'Driveways, patios, walkways' },
-  { value: 'xeriscaping', label: 'Xeriscaping', desc: 'Water-wise desert design' },
   { value: 'turf', label: 'Artificial Turf', desc: 'Year-round green lawns' },
   { value: 'pool-deck', label: 'Pool Deck Remodeling', desc: 'Travertine, cool-deck, pavers' },
   { value: 'walls', label: 'Retaining Walls', desc: 'Block, seat & structural walls' },
