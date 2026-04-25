@@ -27,7 +27,6 @@ export default function GallerySection() {
               <div className="gs-card-media">
                 <img src={p.src} alt={p.name} loading="lazy" />
               </div>
-              <figcaption className="gs-card-caption">{p.name}</figcaption>
             </figure>
           ))}
         </div>
@@ -83,14 +82,6 @@ export default function GallerySection() {
         .gs-card:hover .gs-card-media img {
           transform: scale(1.05);
         }
-        .gs-card-caption {
-          padding: 10px 14px;
-          font-size: 0.88rem;
-          font-weight: 600;
-          color: var(--color-on-surface);
-          font-family: var(--font-family-body);
-          text-align: center;
-        }
         .gs-toggle-wrap {
           display: flex;
           justify-content: center;
@@ -135,10 +126,6 @@ export default function GallerySection() {
           .gs-toggle {
             padding: 12px 20px;
             font-size: 0.92rem;
-          }
-          .gs-card-caption {
-            font-size: 0.82rem;
-            padding: 8px 10px;
           }
         }
       `}</style>
