@@ -13,10 +13,10 @@ const ContactBooking = (props) => {
     <>
       <div className="contact-booking-container1">
         <Head>
-          <title>Contact-Booking - Substantial Golden Peafowl</title>
+          <title>Contact & Booking — Done Right Landscaping</title>
           <meta
             property="og:title"
-            content="Contact-Booking - Substantial Golden Peafowl"
+            content="Contact & Booking — Done Right Landscaping"
           />
           <link
             rel="canonical"

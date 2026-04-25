@@ -36,8 +36,8 @@ const Home = (props) => {
     <>
       <div className="home-container1">
         <Head>
-          <title>Substantial Golden Peafowl</title>
-          <meta property="og:title" content="Substantial Golden Peafowl" />
+          <title>Done Right Landscaping</title>
+          <meta property="og:title" content="Done Right Landscaping" />
           <link
             rel="canonical"
             href="https://substantial-golden-peafowl-ly89h7.teleporthq.site/"
